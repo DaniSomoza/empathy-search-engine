@@ -14,7 +14,7 @@ function SearchGallery() {
 
   return (
     <section>
-      <label>{totalItemsLabel}</label>
+      {items.length > 0 && <label>{totalItemsLabel}</label>}
       <div className={"search-gallery-root"}>
         {items.map((item) => (
           <GalleryItem key={item.id} type={item.type} item={item} />
@@ -43,7 +43,7 @@ function getTotalItemsLabel(category, searchInfo) {
 
   const categoryLabel = SEARCH_CATEGORIES.find(
     ({ value }) => value === category
-  ).label;
+  )?.label;
 
-  return `${categoryLabel} founded: ${searchInfo[`${category}s`].total} items`;
+  return `${categoryLabel} founded: ${searchInfo[`${category}s`]?.total} items`;
 }
