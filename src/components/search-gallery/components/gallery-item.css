@@ -1,0 +1,11 @@
+.card-root {
+  width: 100%;
+  height: 240px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.card-root:hover {
+  transform: scale(1.03, 1.03);
+}

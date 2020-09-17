@@ -1,0 +1,8 @@
+.header-root {
+  text-align: center;
+  width: 100%;
+  height: 64px;
+  background-color: #243d48;
+  position: fixed;
+  z-index: 1;
+}

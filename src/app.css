@@ -1,0 +1,8 @@
+.app-root {
+  height: 100vh;
+}
+
+.app-content {
+  height: calc(100vh - 64px);
+  padding-top: 64px;
+}
