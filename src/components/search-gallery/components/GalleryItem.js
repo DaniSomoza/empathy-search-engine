@@ -1,14 +1,17 @@
 import React from "react";
 import "./gallery-item.css";
 
-function GalleryItem({ color }) {
+const colors = {
+  album: "green",
+  track: "gold",
+  artist: "red",
+};
+
+function GalleryItem({ item, type }) {
   return (
-    <div
-      className={"card-root"}
-      style={{
-        backgroundColor: color,
-      }}
-    />
+    <div className={"card-root"} style={{ backgroundColor: colors[type] }}>
+      {type}
+    </div>
   );
 }
 
