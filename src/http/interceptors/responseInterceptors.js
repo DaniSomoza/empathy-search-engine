@@ -24,7 +24,8 @@ export function responseInterceptorError(response) {
       .then(({ access_token: accessToken }) => {
         this.setAccessToken(accessToken);
         this.isAccessTokenAlreadyCalled = false;
-        return retryCall(response, this);
+
+        return retryCall(response, this, accessToken);
       })
       .catch(() => {
         this.isAccessTokenAlreadyCalled = false;
@@ -35,9 +36,16 @@ export function responseInterceptorError(response) {
   return Promise.reject(response.response);
 }
 
-function retryCall(error, Api) {
+function retryCall(error, Api, newAccessToken) {
   const { config } = error;
+  // retry call should be performed with new accessToken
+  const authHeader = `Bearer ${newAccessToken}`;
+
   return Api.axiosInstance({
     ...config,
+    headers: {
+      ...config.headers,
+      Authorization: authHeader,
+    },
   });
 }

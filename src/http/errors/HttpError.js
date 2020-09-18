@@ -43,4 +43,4 @@ const HTTP_STATUS = {
   UNAUTHORIZED: 401,
 };
 
-export { HttpError, ERROR_MESSAGES };
+export { HttpError, ERROR_MESSAGES, HTTP_STATUS };
