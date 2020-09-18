@@ -1,6 +1,6 @@
 import moxios from "moxios";
 import Api from "../Api";
-import { HTTP_STATUS, ERROR_MESSAGES } from "../errors/HttpError";
+import { HTTP_STATUS, ERROR_MESSAGES, HttpError } from "../errors/HttpError";
 import GENERATE_ACCESS_TOKEN_MOCK from "../../../internals/request/generateAccessToken";
 import { spiedEndpoints } from "../../setupTests";
 
@@ -133,6 +133,73 @@ describe("Api Tests", () => {
           done();
         });
       });
+    });
+  });
+
+  it("Should return error when request fails", (done) => {
+    moxios.stubRequest("/test", {
+      status: HTTP_STATUS.BAD_REQUEST,
+      response: {
+        error: {
+          message: "this is an error",
+        },
+      },
+    });
+
+    const request = Api.get("/test");
+    request.catch((error) => {
+      expect(error.message).toEqual("this is an error");
+      expect(error.status).toEqual(HTTP_STATUS.BAD_REQUEST);
+      done();
+    });
+  });
+
+  it("Should return error when generateAccessCode fails", (done) => {
+    spiedEndpoints.generateAccessToken.mockImplementation(
+      () =>
+        new Promise((resolve, reject) => {
+          expect(Api.isAccessTokenAlreadyCalled).toEqual(true);
+          return reject({
+            response: {
+              status: HTTP_STATUS.BAD_REQUEST,
+              data: {
+                error: {
+                  message: "this is an generateAccessToken error",
+                },
+              },
+            },
+          });
+        })
+    );
+
+    moxios.stubRequest("/test", EXPIRED_TOKEN_ERROR_RESPONSE);
+
+    const request = Api.post("/test");
+
+    request.catch((error) => {
+      expect(Api.isAccessTokenAlreadyCalled).toEqual(false);
+      expect(error.message).toEqual("this is an generateAccessToken error");
+      expect(error.status).toEqual(HTTP_STATUS.BAD_REQUEST);
+      done();
+    });
+  });
+
+  it("HttpError should return the error", () => {
+    const errorData = {
+      status: HTTP_STATUS.BAD_REQUEST,
+      data: {
+        error: {
+          message: "this is the error",
+          extra: "this is extra info about the error",
+        },
+      },
+    };
+
+    const error = new HttpError(errorData);
+
+    expect(error.getError()).toEqual({
+      message: "this is the error",
+      extra: "this is extra info about the error",
     });
   });
 });

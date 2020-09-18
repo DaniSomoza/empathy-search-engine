@@ -29,13 +29,13 @@ export function responseInterceptorError(response) {
 
         return retryCall(response, this, accessToken);
       })
-      .catch(() => {
+      .catch((error) => {
         this.isAccessTokenAlreadyCalled = false;
-        return Promise.reject(response.response);
+        return Promise.reject(new HttpError(error.response));
       });
   }
 
-  return Promise.reject(response.response);
+  return Promise.reject(error);
 }
 
 function retryCall(error, Api, newAccessToken) {
