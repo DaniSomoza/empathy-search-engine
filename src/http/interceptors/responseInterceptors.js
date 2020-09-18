@@ -15,13 +15,15 @@ export function responseInterceptorError(response) {
   if (isAccessTokenExpired) {
     const isAccessTokenAlreadyCalled = this.isAccessTokenAlreadyCalled;
 
+    // to prevent multiple calls to generate access token
     if (!isAccessTokenAlreadyCalled) {
-      this.generateAccessTokenRequest = generateAccessToken();
       this.isAccessTokenAlreadyCalled = true;
+      this.generateAccessTokenRequest = generateAccessToken();
     }
 
     return this.generateAccessTokenRequest
       .then(({ access_token: accessToken }) => {
+        // we set the new access token for future calls
         this.setAccessToken(accessToken);
         this.isAccessTokenAlreadyCalled = false;
 
@@ -38,7 +40,7 @@ export function responseInterceptorError(response) {
 
 function retryCall(error, Api, newAccessToken) {
   const { config } = error;
-  // retry call should be performed with new accessToken
+  // retry call should be performed with the new accessToken
   const authHeader = `Bearer ${newAccessToken}`;
 
   return Api.axiosInstance({

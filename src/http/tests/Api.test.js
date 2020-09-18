@@ -2,6 +2,7 @@ import moxios from "moxios";
 import Api from "../Api";
 import { HTTP_STATUS, ERROR_MESSAGES } from "../errors/HttpError";
 import GENERATE_ACCESS_TOKEN_MOCK from "../../../internals/request/generateAccessToken";
+import { spiedEndpoints } from "../../setupTests";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
@@ -25,7 +26,7 @@ describe("Api Tests", () => {
     moxios.uninstall(Api.axiosInstance);
   });
 
-  it("Should set access token in API", async () => {
+  it("Should set Access Token in header requests", async () => {
     Api.setAccessToken("ACCESS_TOKEN");
 
     expect(Api.axiosInstance.defaults.headers.common["Authorization"]).toEqual(
@@ -33,8 +34,13 @@ describe("Api Tests", () => {
     );
   });
 
-  it("Refresh Token Flow", async (done) => {
+  // TODO: Split this test in 2 separate!
+  it("Should request a new Access Token if its expired", async (done) => {
     const refreshTokenUrl = `${BACKEND_URL}/api/token`;
+
+    const generateAccessTokenSpy = jest.fn();
+
+    Api.get(refreshTokenUrl).then(generateAccessTokenSpy);
 
     Api.setAccessToken("EXPIRED_ACCESS_TOKEN");
 
@@ -45,6 +51,7 @@ describe("Api Tests", () => {
 
     const request = Api.get("/test");
 
+    // we simulate here the response with Access Token expired
     moxios.wait(() => {
       const expiredTokenRequest = moxios.requests.mostRecent();
       expiredTokenRequest.respondWith(EXPIRED_TOKEN_ERROR_RESPONSE).then(() => {
@@ -65,7 +72,67 @@ describe("Api Tests", () => {
       expect(
         Api.axiosInstance.defaults.headers.common["Authorization"]
       ).toEqual("Bearer ACCESS_TOKEN");
+
+      expect(generateAccessTokenSpy).toHaveBeenCalled();
+      expect(generateAccessTokenSpy).toHaveBeenCalledTimes(1);
+      generateAccessTokenSpy.mockRestore();
+
       done();
+    });
+  });
+
+  it("Should not call generateAccessToken endpoint if was already called", async (done) => {
+    const refreshTokenUrl = `${BACKEND_URL}/api/token`;
+
+    const generateAccessTokenSpy = jest.fn();
+
+    Api.get(refreshTokenUrl).then(generateAccessTokenSpy);
+
+    Api.setAccessToken("EXPIRED_ACCESS_TOKEN");
+
+    moxios.stubRequest(refreshTokenUrl, {
+      status: HTTP_STATUS.OK,
+      response: GENERATE_ACCESS_TOKEN_MOCK,
+    });
+
+    Api.isAccessTokenAlreadyCalled = true;
+
+    let resolveAccessTokenRequest;
+    Api.generateAccessTokenRequest = new Promise((resolve) => {
+      resolveAccessTokenRequest = () =>
+        resolve({
+          access_token: "ACCESS_TOKEN_JAJ",
+        });
+    });
+
+    const request = Api.get("/test");
+
+    moxios.wait(() => {
+      const expiredTokenRequest = moxios.requests.mostRecent();
+      expiredTokenRequest.respondWith(EXPIRED_TOKEN_ERROR_RESPONSE).then(() => {
+        // we check if we are waiting for generateAccessToken
+        expect(spiedEndpoints.generateAccessToken).not.toHaveBeenCalled();
+        expect(
+          Api.axiosInstance.defaults.headers.common["Authorization"]
+        ).toEqual("Bearer EXPIRED_ACCESS_TOKEN");
+
+        // now he simulate that generateAccessToken is finished
+        moxios.stubRequest("/test", {
+          status: HTTP_STATUS.OK,
+          response: {},
+        });
+        resolveAccessTokenRequest();
+
+        // now we check if new AccessToken is set
+        request.then(() => {
+          expect(
+            Api.axiosInstance.defaults.headers.common["Authorization"]
+          ).toEqual("Bearer ACCESS_TOKEN_JAJ");
+
+          expect(Api.isAccessTokenAlreadyCalled).toEqual(false);
+          done();
+        });
+      });
     });
   });
 });

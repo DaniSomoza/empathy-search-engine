@@ -33,7 +33,7 @@ beforeEach(mockAllRequestsByDefault);
 
 afterEach(clearAllMockRequest);
 
-let spiedEndpoints = {};
+export let spiedEndpoints = {};
 
 function mockAllRequestsByDefault() {
   spiedEndpoints.generateAccessToken = jest

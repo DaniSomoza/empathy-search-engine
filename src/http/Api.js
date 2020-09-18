@@ -23,6 +23,8 @@ class Api {
       responseInterceptorSuccess.bind(this),
       responseInterceptorError.bind(this)
     );
+
+    this.isAccessTokenAlreadyCalled = false;
   }
 
   setAccessToken(accessToken) {
