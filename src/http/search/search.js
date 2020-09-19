@@ -13,19 +13,19 @@ export function searchAll(query) {
 }
 
 export function searchArtists(query) {
-  const allCategories = "artist";
-  const url = `${BASE_URL}${API_VERSION}/search?q=${query}&type=${allCategories}`;
+  const artistCategory = "artist";
+  const url = `${BASE_URL}${API_VERSION}/search?q=${query}&type=${artistCategory}`;
   return Api.get(url);
 }
 
 export function searchTracks(query) {
-  const allCategories = "track";
-  const url = `${BASE_URL}${API_VERSION}/search?q=${query}&type=${allCategories}`;
+  const tracksCategory = "tracks";
+  const url = `${BASE_URL}${API_VERSION}/search?q=${query}&type=${tracksCategory}`;
   return Api.get(url);
 }
 
 export function searchAlbums(query) {
-  const allCategories = "album";
-  const url = `${BASE_URL}${API_VERSION}/search?q=${query}&type=${allCategories}`;
+  const albumsCategory = "album";
+  const url = `${BASE_URL}${API_VERSION}/search?q=${query}&type=${albumsCategory}`;
   return Api.get(url);
 }

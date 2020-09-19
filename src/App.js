@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./components/header/Header";
 import SearchGallery from "./components/search-gallery/SearchGallery";
-import Providers from "./components/store";
+import Providers from "./store";
 import "./app.css";
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
     <div className="app-root">
       <Providers>
         <Header />
-        <div className="app-content">
+        <div id={"app-content"} className="app-content">
           <SearchGallery />
         </div>
       </Providers>

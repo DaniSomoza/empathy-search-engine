@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import { generateAccessToken } from "../../http/auth/auth";
-import Api from "../../http/Api";
+import { generateAccessToken } from "../http/auth/auth";
+import Api from "../http/Api";
 
 const AuthorizationContext = React.createContext();
 

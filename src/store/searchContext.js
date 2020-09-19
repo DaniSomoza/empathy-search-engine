@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import getUrlParam from "../../helpers/getUrlParam";
+import getUrlParam from "../helpers/getUrlParam";
 import {
   searchAll,
   searchTracks,
   searchAlbums,
   searchArtists,
-} from "../../http/spotify/spotify";
+} from "../http/search/search";
 
 const SearchContext = React.createContext();
 
@@ -38,7 +38,7 @@ function useSearch() {
 function SearchProvider(props) {
   const [query, setQuery] = useState(getUrlParam("query") || "");
   const [category, setCategory] = useState(
-    getUrlParam("category") || ALL_CATEGORIES
+    getUrlParam("category") || ALL_CATEGORIES.value
   );
   const [items, setItems] = useState([]);
   const [searchInfo, setSearchInfo] = useState({
@@ -59,15 +59,21 @@ function SearchProvider(props) {
   useEffect(() => {
     async function performSearch() {
       if (query) {
+        const searchEndpoints = {
+          [ALL_CATEGORIES.value]: searchAll,
+          [TRACK_CATEGORY.value]: searchTracks,
+          [ALBUM_CATEGORY.value]: searchAlbums,
+          [ARTIST_CATEGORY.value]: searchArtists,
+        };
         const searchEndpoint = searchEndpoints[category] || searchAll;
         const {
           albums = { items: [], total: 0 },
           artists = { items: [], total: 0 },
           tracks = { items: [], total: 0 },
         } = await searchEndpoint(query);
-        console.log("Albums: ", albums);
-        console.log("Artists: ", artists);
-        console.log("Tracks: ", tracks);
+        // console.log("Albums: ", albums);
+        // console.log("Artists: ", artists);
+        // console.log("Tracks: ", tracks);
         setItems(combineItems(albums.items, artists.items, tracks.items));
         setSearchInfo({ artists, albums, tracks });
       } else {
@@ -110,13 +116,6 @@ function SearchProvider(props) {
 }
 
 export { useSearch, SearchProvider };
-
-const searchEndpoints = {
-  [ALL_CATEGORIES.value]: searchAll,
-  [TRACK_CATEGORY.value]: searchTracks,
-  [ALBUM_CATEGORY.value]: searchAlbums,
-  [ARTIST_CATEGORY.value]: searchArtists,
-};
 
 function combineItems(albums = [], tracks = [], artist = []) {
   const totalItems = albums.length + tracks.length + artist.length;

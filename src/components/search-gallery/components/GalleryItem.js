@@ -1,6 +1,6 @@
 import React from "react";
 import "./gallery-item.css";
-import { TRACK_CATEGORY } from "../../store/searchContext";
+import { TRACK_CATEGORY } from "../../../store/searchContext";
 
 // TODO: refine this
 function GalleryItem({ item, type }) {

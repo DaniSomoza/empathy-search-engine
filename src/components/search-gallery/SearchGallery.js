@@ -4,7 +4,7 @@ import {
   useSearch,
   ALL_CATEGORIES,
   SEARCH_CATEGORIES,
-} from "../store/searchContext";
+} from "../../store/searchContext";
 import "./search-gallery.css";
 
 function SearchGallery() {

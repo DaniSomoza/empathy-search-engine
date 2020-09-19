@@ -4,7 +4,7 @@ import SearchEngine from "../search-engine/SearchEngine";
 
 function Header() {
   return (
-    <header className="header-root">
+    <header id={"app-header"} className="header-root">
       <SearchEngine />
     </header>
   );

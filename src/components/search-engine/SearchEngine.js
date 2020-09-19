@@ -1,12 +1,12 @@
 import React from "react";
-import { useSearch, SEARCH_CATEGORIES } from "../store/searchContext";
+import { useSearch, SEARCH_CATEGORIES } from "../../store/searchContext";
 import "./search.css";
 
 function SearchEngine() {
   const { query, category, onChangeQuery, onChangeCategory } = useSearch();
 
   return (
-    <div className="search-root">
+    <div id={"search-engine"} className="search-root">
       <form className="search-form">
         <div className="search-category-selector-container">
           <select
@@ -18,7 +18,11 @@ function SearchEngine() {
             aria-describedby="searchDropdownCategory"
           >
             {SEARCH_CATEGORIES.map((category) => (
-              <option key={category.label} value={category.value}>
+              <option
+                id={`category-dropdown-${category.value}-option`}
+                key={category.label}
+                value={category.value}
+              >
                 {category.label}
               </option>
             ))}
