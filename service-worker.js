@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/empathy-search-engine/precache-manifest.3139f25d8fda9720e814b5a6256121bf.js"
+  "/empathy-search-engine/precache-manifest.7b482ae2f30646513e4b4090a90fff65.js"
 );
 
 self.addEventListener('message', (event) => {
