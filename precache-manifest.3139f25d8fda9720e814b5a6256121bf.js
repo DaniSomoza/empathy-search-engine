@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "102f7368006dee93ecee35013d896c00",
+    "revision": "816457293f5eb5933b3fef52e9486860",
     "url": "/empathy-search-engine/index.html"
   },
   {
-    "revision": "d776943f62f3aa23e749",
+    "revision": "6003763bf1da5e3eebfb",
     "url": "/empathy-search-engine/static/css/main.2f8f705a.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/empathy-search-engine/static/js/2.780a4279.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "d776943f62f3aa23e749",
-    "url": "/empathy-search-engine/static/js/main.1ade1d3f.chunk.js"
+    "revision": "6003763bf1da5e3eebfb",
+    "url": "/empathy-search-engine/static/js/main.de8b75ae.chunk.js"
   },
   {
     "revision": "1e590947bcf55f82dcf7",
