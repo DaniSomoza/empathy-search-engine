@@ -24,7 +24,7 @@ jobs:
 
       # Send a notification in slack
       - name: Send a start pipeline notification to Slack
-        run: echo Send a start pipeline notification to Slack in $BRANCH
+        run: echo Send a start pipeline notification to Slack in develop branch
 
       # Runs npm install
       - name: npm install

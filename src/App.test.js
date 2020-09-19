@@ -6,7 +6,7 @@ test("renders learn react link", () => {
   const { getByTestId } = render(<App />);
 
   const headerNode = getByTestId("app-header");
-  expect(headerNode).toBeInTheDocument();
+  expect(headerNode).not.toBeInTheDocument();
 
   const contentNode = getByTestId("app-content");
   expect(contentNode).toBeInTheDocument();
