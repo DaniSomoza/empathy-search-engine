@@ -20,7 +20,6 @@ function App() {
       <Providers>
         <Header />
         <div id={"app-content"} className="app-content">
-          {"updated!"}
           <SearchGallery />
         </div>
       </Providers>
