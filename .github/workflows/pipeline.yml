@@ -38,11 +38,10 @@ jobs:
       - name: generate build
         run: npm run build
 
-      - name: Configure git
-        run: |
-          git config user.email "${{secrets.USER_GITHUB_EMAIL}}"
-          git config user.name "${{secrets.USER_GITHUB_NAME}}"
-
-      # Deploy to github pages
-      - name: Deploy
-        run: npm run deploy
+      - name: deploy-to-github-pages
+        uses: JamesIves/github-pages-deploy-action@3.6.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: build
+          CLEAN: true
