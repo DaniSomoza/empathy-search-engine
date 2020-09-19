@@ -32,3 +32,8 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: run tests
         run: npm run test
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v1.4
+        with:
+          projectBaseDir: src
