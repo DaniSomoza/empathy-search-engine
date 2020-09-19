@@ -30,6 +30,14 @@ jobs:
       - name: npm install
         run: npm i
 
-      # Runs a set of commands using the runners shell
+      # Runs tests
       - name: run tests
         run: npm run test
+
+      # Generate build
+      - name: generate build
+      run: npm run build
+
+      # Deploy to github pages
+      - name: Deploy
+      run: npm run deploy
