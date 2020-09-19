@@ -37,6 +37,10 @@ jobs:
       # Generate build
       - name: generate build
         run: npm run build
+        env:
+          REACT_APP_SPOTIFY_URL: ${{ secrets.REACT_APP_SPOTIFY_URL }}
+          REACT_APP_BACKEND_URL: ${{ secrets.REACT_APP_BACKEND_URL }}
+          REACT_APP_TOKEN_SECRET: ${{ secrets.REACT_APP_TOKEN_SECRET }}
 
       - name: deploy-to-github-pages
         uses: JamesIves/github-pages-deploy-action@3.6.1
