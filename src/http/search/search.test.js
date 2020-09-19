@@ -71,7 +71,7 @@ describe("HTTP Search Tests", () => {
 
     const { tracks } = await searchTracks(query);
 
-    const tracksCategory = "tracks";
+    const tracksCategory = "track";
     const url = `${BASE_URL}${API_VERSION}/search?q=${query}&type=${tracksCategory}`;
 
     expect(request).toHaveBeenCalledWith(url);
