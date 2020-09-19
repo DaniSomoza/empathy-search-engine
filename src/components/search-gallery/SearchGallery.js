@@ -12,8 +12,10 @@ function SearchGallery() {
 
   const totalItemsLabel = getTotalItemsLabel(category, searchInfo);
 
+  console.log(totalItemsLabel);
+
   return (
-    <section>
+    <section id={"search-gallery"}>
       {items.length > 0 && <label>{totalItemsLabel}</label>}
       <div className={"search-gallery-root"}>
         {items.map((item) => (
@@ -38,7 +40,7 @@ function getTotalItemsLabel(category, searchInfo) {
     const artistsLabel = `Artists founded: ${searchInfo.artists.total} items`;
     const albumLabel = `Albums founded: ${searchInfo.albums.total} items`;
     const tracksLabel = `Tracks founded: ${searchInfo.tracks.total} items`;
-    return `${artistsLabel}, ${albumLabel}, ${tracksLabel} (${totalItems} total items)`;
+    return `${artistsLabel}, ${albumLabel}, ${tracksLabel} (${totalItems} items in total)`;
   }
 
   const categoryLabel = SEARCH_CATEGORIES.find(

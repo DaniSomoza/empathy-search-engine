@@ -23,23 +23,7 @@ const SEARCH_TRACKS_MOCK = {
           },
           href: "https://url/v1/albums/2",
           id: "2",
-          images: [
-            {
-              height: 640,
-              url: "https://url/image/1",
-              width: 640,
-            },
-            {
-              height: 300,
-              url: "https://url/image/2",
-              width: 300,
-            },
-            {
-              height: 64,
-              url: "https://url/image/3",
-              width: 64,
-            },
-          ],
+          images: [],
           name: "Album 1",
           release_date: "2019-08-23",
           release_date_precision: "day",
