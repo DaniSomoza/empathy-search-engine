@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/empathy-search-engine/static/css/main.2f8f705a.chunk.css",
+    "main.js": "/empathy-search-engine/static/js/main.863433cc.chunk.js",
+    "main.js.map": "/empathy-search-engine/static/js/main.863433cc.chunk.js.map",
+    "runtime-main.js": "/empathy-search-engine/static/js/runtime-main.057e0836.js",
+    "runtime-main.js.map": "/empathy-search-engine/static/js/runtime-main.057e0836.js.map",
+    "static/js/2.a7674419.chunk.js": "/empathy-search-engine/static/js/2.a7674419.chunk.js",
+    "static/js/2.a7674419.chunk.js.map": "/empathy-search-engine/static/js/2.a7674419.chunk.js.map",
+    "index.html": "/empathy-search-engine/index.html",
+    "precache-manifest.ca4e9f4992746821e22406cf48d6f25f.js": "/empathy-search-engine/precache-manifest.ca4e9f4992746821e22406cf48d6f25f.js",
+    "service-worker.js": "/empathy-search-engine/service-worker.js",
+    "static/css/main.2f8f705a.chunk.css.map": "/empathy-search-engine/static/css/main.2f8f705a.chunk.css.map",
+    "static/js/2.a7674419.chunk.js.LICENSE.txt": "/empathy-search-engine/static/js/2.a7674419.chunk.js.LICENSE.txt",
+    "static/media/search.css": "/empathy-search-engine/static/media/search-icon.2c37daca.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.057e0836.js",
+    "static/js/2.a7674419.chunk.js",
+    "static/css/main.2f8f705a.chunk.css",
+    "static/js/main.863433cc.chunk.js"
+  ]
+}
