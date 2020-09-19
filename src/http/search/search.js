@@ -19,7 +19,7 @@ export function searchArtists(query) {
 }
 
 export function searchTracks(query) {
-  const tracksCategory = "tracks";
+  const tracksCategory = "track";
   const url = `${BASE_URL}${API_VERSION}/search?q=${query}&type=${tracksCategory}`;
   return Api.get(url);
 }
