@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 // ***********************************************************
 // This example support/index.js is processed and
 // loaded automatically before your test files.
@@ -15,6 +14,8 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
+import "@testing-library/cypress/add-commands";
+import "@cypress/code-coverage/support";
 import "./mock-commands";
 import GENERATE_ACCESS_TOKEN_MOCK from "../../internals/request/generateAccessToken";
 import SEARCH_ALL_MOCK from "../../internals/request/searchAll";

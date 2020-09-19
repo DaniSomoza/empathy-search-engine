@@ -17,9 +17,23 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
-    "test": "react-scripts test",
-    "cypress": "cypress open",
-    "coverage": "npm run test -- --coverage --watchAll=false"
+    "test:jest:local": "react-scripts test --env=jsdom",
+    "test:cypress:local": "cypress open",
+    "test:local": "npm run test:jest:local && npm run test:cypress:local",
+    "test:jest": "react-scripts test --env=jsdom --coverage --coverageDirectory=coverage-jest --reporters=\"default\" --reporters=\"jest-junit\" --watchAll=false --ci",
+    "start:integration": "react-scripts -r @cypress/instrument-cra start",
+    "test:cypress": "start-server-and-test start:integration http://localhost:3000 cy:run",
+    "cy:run": "cypress run",
+    "test": "npm run test:jest && npm run test:cypress",
+    "posttest": "npm run report:combined",
+    "mkdir:reports": "mkdir reports || true",
+    "precopy:reports": "npm run mkdir:reports",
+    "copy:reports": "cp coverage-cypress/coverage-final.json reports/from-cypress.json && cp coverage-jest/coverage-final.json reports/from-jest.json",
+    "precombine:reports": "npm run copy:reports && mkdir .nyc_output || true",
+    "combine:reports": "nyc merge reports && mv coverage.json .nyc_output/out.json",
+    "prereport:combined": "npm run combine:reports",
+    "report:combined": "nyc report --reporter lcov --report-dir coverage",
+    "postreport:combined": "rimraf -rf reports coverage-cypress coverage-jest .nyc_output"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -41,6 +55,41 @@
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
     "moxios": "^0.4.0",
-    "prettier": "^2.1.2"
+    "prettier": "^2.1.2",
+    "@cypress/code-coverage": "1.10.4",
+    "@cypress/instrument-cra": "1.0.0",
+    "@testing-library/cypress": "5.0.2",
+    "@testing-library/jest-dom": "4.2.4",
+    "@testing-library/react": "9.4.0",
+    "cypress-file-upload": "4.0.6",
+    "istanbul-lib-coverage": "3.0.0",
+    "jest": "24.9.0",
+    "jest-junit": "10.0.0",
+    "nyc": "15.0.0",
+    "start-server-and-test": "1.10.8"
+  },
+  "nyc": {
+    "require": [
+      "babel-register"
+    ],
+    "all": true,
+    "report-dir": "coverage-cypress",
+    "include": [
+      "src/**/*.js"
+    ],
+    "exclude": [
+      "src/**/*.test.js"
+    ],
+    "sourceMap": false,
+    "instrument": false
+  },
+  "jest-junit": {
+    "suiteName": "react-scripts test",
+    "outputDirectory": "./coverage/",
+    "outputName": "./junit.xml",
+    "classNameTemplate": "{classname}-{title}",
+    "titleTemplate": "{classname}-{title}",
+    "ancestorSeparator": " > ",
+    "usePathForSuiteName": true
   }
 }
