@@ -1,0 +1,7 @@
+{
+  "baseUrl": "http://localhost:3000",
+  "env": {
+    "MOCK_REQUEST_ENABLED": true
+  },
+  "chromeWebSecurity": false
+}
