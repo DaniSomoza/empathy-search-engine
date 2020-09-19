@@ -38,6 +38,11 @@ jobs:
       - name: generate build
         run: npm run build
 
+      - name: Configure git
+        run: |
+          git config user.email "${{secrets.USER_GITHUB_EMAIL}}"
+          git config user.name "${{secrets.USER_GITHUB_NAME}}"
+
       # Deploy to github pages
       - name: Deploy
         run: npm run deploy
