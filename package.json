@@ -13,6 +13,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-infinite-scroll-component": "^5.1.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3"
   },
   "scripts": {
@@ -57,8 +58,6 @@
     "@cypress/code-coverage": "1.10.4",
     "@cypress/instrument-cra": "1.0.0",
     "@testing-library/cypress": "5.0.2",
-    "@testing-library/jest-dom": "4.2.4",
-    "@testing-library/react": "9.4.0",
     "cypress": "5.2.0",
     "cypress-file-upload": "4.0.6",
     "eslint-config-prettier": "^6.11.0",

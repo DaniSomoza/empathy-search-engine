@@ -1,0 +1,25 @@
+.album-root {
+  text-align: center;
+}
+
+.album-info-section {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.album-info-text {
+  text-align: left;
+  padding: 12px;
+}
+
+@media (max-width: 600px) {
+  .album-info-section {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .album-info-text {
+    text-align: center;
+  }
+}

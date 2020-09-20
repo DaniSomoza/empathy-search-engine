@@ -7,7 +7,7 @@ function SearchEngine() {
 
   return (
     <div id={"search-engine"} className="search-root">
-      <form className="search-form">
+      <form className="search-form" action="/">
         <div className="search-category-selector-container">
           <select
             id={"category-dropdown"}
