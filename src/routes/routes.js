@@ -37,6 +37,4 @@ const TRACK_ROUTE = {
   Component: Track,
 };
 
-const routes = [ALBUM_ROUTE, TRACK_ROUTE, ARTIST_ROUTE, HOME_ROUTE];
-
-export default routes;
+export const routes = [ALBUM_ROUTE, TRACK_ROUTE, ARTIST_ROUTE, HOME_ROUTE];

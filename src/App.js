@@ -5,7 +5,7 @@ import Providers from "./store";
 import "./app.css";
 import Api from "./http/Api";
 import { generateAccessToken } from "./http/auth/auth";
-import routes from "./routes/routes";
+import { routes } from "./routes/routes";
 
 function App() {
   useEffect(() => {

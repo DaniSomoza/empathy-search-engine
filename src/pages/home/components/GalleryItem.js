@@ -46,13 +46,13 @@ function GalleryItem({ item, type }) {
 
 export default GalleryItem;
 
-const paths = {
-  [TRACK_CATEGORY.value]: TRACK_PATHNAME,
-  [ALBUM_CATEGORY.value]: ALBUM_PATHNAME,
-  [ARTIST_CATEGORY.value]: ARTIST_PATHNAME,
-};
-
 function getRedirectPath(item) {
+  const paths = {
+    [TRACK_CATEGORY.value]: TRACK_PATHNAME,
+    [ALBUM_CATEGORY.value]: ALBUM_PATHNAME,
+    [ARTIST_CATEGORY.value]: ARTIST_PATHNAME,
+  };
+
   const path = paths[item.type];
 
   return `${path}/${item.id}`;
