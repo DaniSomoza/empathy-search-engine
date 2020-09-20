@@ -9,7 +9,7 @@ import {
 import artistPlaceholder from "../../../assets/artist-placeholder.jpeg";
 import albumPlaceholder from "../../../assets/album-placeholder.jpg";
 import trackPlaceholder from "../../../assets/track-placeholder.png";
-import ImageCard from "../../image-card/ImageCard";
+import ImageCard from "../../../components/image-card/ImageCard";
 
 // TODO: refine this
 function GalleryItem({ item, type }) {

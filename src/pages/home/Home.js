@@ -6,10 +6,10 @@ import {
   ALL_CATEGORIES,
   SEARCH_CATEGORIES,
 } from "../../store/searchContext";
-import "./search-gallery.css";
 import Loader from "../../loader/Loader";
+import "./home.css";
 
-function SearchGallery() {
+function Home() {
   const {
     items,
     searchInfo,
@@ -55,7 +55,7 @@ function SearchGallery() {
   );
 }
 
-export default SearchGallery;
+export default Home;
 
 function getTotalItemsLabel(category, searchInfo) {
   const totalItems =

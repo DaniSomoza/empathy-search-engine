@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./components/header/Header";
-import SearchGallery from "./components/search-gallery/SearchGallery";
 import Providers from "./store";
 import "./app.css";
 import Api from "./http/Api";
@@ -9,6 +8,7 @@ import { generateAccessToken } from "./http/auth/auth";
 import Album from "./pages/album/Album";
 import Track from "./pages/track/Track";
 import Artist from "./pages/artist/Artist";
+import Home from "./pages/home/Home";
 
 function App() {
   useEffect(() => {
@@ -37,7 +37,7 @@ function App() {
                 <Track />
               </Route>
               <Route path="/">
-                <SearchGallery />
+                <Home />
               </Route>
             </Switch>
           </div>

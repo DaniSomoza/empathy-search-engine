@@ -1,15 +1,15 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import Providers from "../../store";
-import SearchGallery from "./SearchGallery";
 import SEARCH_ALL_MOCK from "../../../internals/request/searchAll";
 import SEARCH_ALBUMS_MOCK from "../../../internals/request/searchAlbums";
+import Home from "./Home";
 
-describe("<SearchGallery />", () => {
+describe("<Home />", () => {
   it("Should render search field component", () => {
     const { getByTestId } = render(
       <Providers>
-        <SearchGallery />
+        <Home />
       </Providers>
     );
 
@@ -49,7 +49,7 @@ describe("<SearchGallery />", () => {
 
     const { getByTestId } = render(
       <Providers store={store}>
-        <SearchGallery />
+        <Home />
       </Providers>
     );
 
@@ -94,7 +94,7 @@ describe("<SearchGallery />", () => {
 
     const { getByText } = render(
       <Providers store={store}>
-        <SearchGallery />
+        <Home />
       </Providers>
     );
 
@@ -134,7 +134,7 @@ describe("<SearchGallery />", () => {
 
     const { getByText } = render(
       <Providers store={store}>
-        <SearchGallery />
+        <Home />
       </Providers>
     );
 
