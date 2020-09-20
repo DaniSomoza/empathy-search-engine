@@ -8,10 +8,10 @@ const DEFAULT_BASE_PATHNAME = "/";
 const BASE_PATHNAME =
   process.env.REACT_APP_BASE_PATHNAME || DEFAULT_BASE_PATHNAME;
 
-const HOME_PATHNAME = `${BASE_PATHNAME}`;
-const ARTIST_PATHNAME = `${BASE_PATHNAME}artists`;
-const ALBUM_PATHNAME = `${BASE_PATHNAME}albums`;
-const TRACK_PATHNAME = `${BASE_PATHNAME}tracks`;
+export const HOME_PATHNAME = `${BASE_PATHNAME}`;
+export const ARTIST_PATHNAME = `${BASE_PATHNAME}artists`;
+export const ALBUM_PATHNAME = `${BASE_PATHNAME}albums`;
+export const TRACK_PATHNAME = `${BASE_PATHNAME}tracks`;
 
 const HOME_ROUTE = {
   pathname: HOME_PATHNAME,

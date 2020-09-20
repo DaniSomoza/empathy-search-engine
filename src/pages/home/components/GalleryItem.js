@@ -10,6 +10,11 @@ import artistPlaceholder from "../../../assets/artist-placeholder.jpeg";
 import albumPlaceholder from "../../../assets/album-placeholder.jpg";
 import trackPlaceholder from "../../../assets/track-placeholder.png";
 import ImageCard from "../../../components/image-card/ImageCard";
+import {
+  ARTIST_PATHNAME,
+  ALBUM_PATHNAME,
+  TRACK_PATHNAME,
+} from "../../../routes/routes";
 
 // TODO: refine this
 function GalleryItem({ item, type }) {
@@ -42,9 +47,9 @@ function GalleryItem({ item, type }) {
 export default GalleryItem;
 
 const paths = {
-  [TRACK_CATEGORY.value]: "/tracks",
-  [ALBUM_CATEGORY.value]: "/albums",
-  [ARTIST_CATEGORY.value]: "/artists",
+  [TRACK_CATEGORY.value]: TRACK_PATHNAME,
+  [ALBUM_CATEGORY.value]: ALBUM_PATHNAME,
+  [ARTIST_CATEGORY.value]: ARTIST_PATHNAME,
 };
 
 function getRedirectPath(item) {

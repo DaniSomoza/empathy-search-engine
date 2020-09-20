@@ -1,13 +1,14 @@
 import React from "react";
 import { useSearch, SEARCH_CATEGORIES } from "../../store/searchContext";
 import "./search.css";
+import { HOME_PATHNAME } from "../../routes/routes";
 
 function SearchEngine() {
   const { query, category, onChangeQuery, onChangeCategory } = useSearch();
 
   return (
     <div id={"search-engine"} className="search-root">
-      <form className="search-form" action="/">
+      <form className="search-form" action={HOME_PATHNAME}>
         <div className="search-category-selector-container">
           <select
             id={"category-dropdown"}
