@@ -5,10 +5,7 @@ import Providers from "./store";
 import "./app.css";
 import Api from "./http/Api";
 import { generateAccessToken } from "./http/auth/auth";
-import Album from "./pages/album/Album";
-import Track from "./pages/track/Track";
-import Artist from "./pages/artist/Artist";
-import Home from "./pages/home/Home";
+import routes from "./routes/routes";
 
 function App() {
   useEffect(() => {
@@ -19,7 +16,6 @@ function App() {
     performGenerateAccessToken();
   }, []);
 
-  // TODO: CREATE ROUTES FILE
   return (
     <div className="app-root">
       <Providers>
@@ -27,18 +23,11 @@ function App() {
           <Header />
           <div id={"app-content"} className="app-content">
             <Switch>
-              <Route path="/albums/:albumId">
-                <Album />
-              </Route>
-              <Route path="/artists/:artistId">
-                <Artist />
-              </Route>
-              <Route path="/tracks/:trackId">
-                <Track />
-              </Route>
-              <Route path="/">
-                <Home />
-              </Route>
+              {routes.map((route) => (
+                <Route key={route.pathname} path={route.path}>
+                  <route.Component />
+                </Route>
+              ))}
             </Switch>
           </div>
         </Router>
