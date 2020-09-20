@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getAlbum } from "../../http/albums/Albums";
+import { getAlbum } from "../../http/albums/albums";
 import Loader from "../../loader/Loader";
 import ImageCard from "../../components/image-card/ImageCard";
 import albumPlaceholder from "../../assets/album-placeholder.jpg";
@@ -48,6 +48,7 @@ function Album() {
           <div className={"album-info-text"}>
             <p>{`Type: ${album.type}.`}</p>
             <p>{`Name: ${album.name}.`}</p>
+            {/* TODO: ADD OnClick to artist HERE??? */}
             <p>{`Artist: ${album?.artists
               ?.map((artist) => artist.name)
               .join(", ")}.`}</p>

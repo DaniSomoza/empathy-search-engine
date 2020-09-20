@@ -1,0 +1,25 @@
+.artist-root {
+  text-align: center;
+}
+
+.artist-info-section {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.artist-info-text {
+  text-align: left;
+  padding: 12px;
+}
+
+@media (max-width: 600px) {
+  .artist-info-section {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .artist-info-text {
+    text-align: center;
+  }
+}
