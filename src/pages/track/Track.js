@@ -32,19 +32,20 @@ function Track() {
   console.log(track);
 
   return (
-    <div className={"artist-root"}>
+    <div className={"track-root"}>
       <Loader isLoading={isLoading}>
         {/* TODO: ADD BACK BUTTON */}
         <h1>{track.name}</h1>
         <section className={"artist-info-section"}>
           <ImageCard
+            id={track.id}
             height={"300px"}
             width={"300px"}
             images={track.album?.images}
             placeholder={trackPlaceholder}
           />
           {/* TODO: ADD STYLES HERE */}
-          <div className={"artist-info-text"}>
+          <div className={"track-info-text"}>
             <p>{`Type: ${track.type}.`}</p>
             <p>{`Name: ${track.name}.`}</p>
             <p>{`Artist: ${track?.artists

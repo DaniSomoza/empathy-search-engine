@@ -37,6 +37,7 @@ function Artist() {
         <h1>{artist.name}</h1>
         <section className={"artist-info-section"}>
           <ImageCard
+            id={artist.id}
             height={"300px"}
             width={"300px"}
             images={artist.images}

@@ -37,6 +37,7 @@ function Album() {
         <h1>{album.name}</h1>
         <section className={"album-info-section"}>
           <ImageCard
+            id={album.id}
             height={"300px"}
             width={"300px"}
             images={album.images}

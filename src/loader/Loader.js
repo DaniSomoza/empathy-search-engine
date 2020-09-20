@@ -3,6 +3,7 @@ import loaderGif from "../assets/loader-animated.gif";
 import empathyTextLogo from "../assets/logo-text-empathy.svg";
 import "./loader.css";
 
+// TODO: SEND LOADER TO COMPONETS!
 function Loader({ children, isLoading }) {
   return isLoading ? (
     <div id={"loader"} className={"loader-container"}>

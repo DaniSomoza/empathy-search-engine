@@ -10,6 +10,7 @@ function Header() {
   return (
     <header id={"app-header"} className="header-root">
       <img
+        id={"app-header--text-logo"}
         onClick={() => {
           history.push("/");
           scrollToTop();

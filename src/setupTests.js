@@ -2,11 +2,17 @@ import "@testing-library/jest-dom/extend-expect";
 import { configure, cleanup } from "@testing-library/react";
 import * as authEndpoints from "./http/auth/auth";
 import * as searchEndpoints from "./http/search/search";
+import * as artistsEndpoints from "./http/artists/artists";
+import * as albumsEndpoints from "./http/albums/albums";
+import * as tracksEndpoints from "./http/tracks/tracks";
 import GENERATE_ACCESS_TOKEN_MOCK from "../internals/request/generateAccessToken";
 import SEARCH_ALL_MOCK from "../internals/request/searchAll";
 import SEARCH_ARTISTS_MOCK from "../internals/request/searchArtists";
 import SEARCH_TRACKS_MOCK from "../internals/request/searchTracks";
 import SEARCH_ALBUMS_MOCK from "../internals/request/searchAlbums";
+import GET_ARTIST_MOCK from "../internals/request/getArtist";
+import GET_TRACK_MOCK from "../internals/request/getTrack";
+import GET_ALBUM_MOCK from "../internals/request/getAlbum";
 
 configure({ testIdAttribute: "id" });
 
@@ -51,6 +57,24 @@ function mockAllRequestsByDefault() {
     .spyOn(searchEndpoints, "searchAlbums")
     .mockImplementation(
       () => new Promise((resolve) => resolve(SEARCH_ALBUMS_MOCK))
+    );
+
+  spiedEndpoints.getArtist = jest
+    .spyOn(artistsEndpoints, "getArtist")
+    .mockImplementation(
+      () => new Promise((resolve) => resolve(GET_ARTIST_MOCK))
+    );
+
+  spiedEndpoints.getAlbum = jest
+    .spyOn(albumsEndpoints, "getAlbum")
+    .mockImplementation(
+      () => new Promise((resolve) => resolve(GET_ALBUM_MOCK))
+    );
+
+  spiedEndpoints.getTrack = jest
+    .spyOn(tracksEndpoints, "getTrack")
+    .mockImplementation(
+      () => new Promise((resolve) => resolve(GET_TRACK_MOCK))
     );
 }
 

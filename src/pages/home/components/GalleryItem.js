@@ -29,7 +29,12 @@ function GalleryItem({ item, type }) {
         history.push(redirectPath);
       }}
     >
-      <ImageCard height="240" images={images} placeholder={placeholder} />
+      <ImageCard
+        id={item.id}
+        height="240"
+        images={images}
+        placeholder={placeholder}
+      />
     </article>
   );
 }

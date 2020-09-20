@@ -39,14 +39,7 @@ function SearchEngine() {
           ></input>
         </div>
         <div className="search-button-container">
-          <input
-            className="search-button"
-            type="submit"
-            onSubmit={(event) => {
-              event.preventDefault();
-              onChangeQuery(query);
-            }}
-          />
+          <input className="search-button" type="submit" />
         </div>
       </form>
     </div>
