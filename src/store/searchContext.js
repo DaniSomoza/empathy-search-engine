@@ -114,7 +114,6 @@ function SearchProvider(props) {
 
   function onChangeQuery(query) {
     scrollToTop();
-    // TODO: ADD LOADER
     setQuery(query);
   }
 

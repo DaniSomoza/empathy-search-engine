@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getAlbum } from "../../http/albums/albums";
-import Loader from "../../loader/Loader";
+import Loader from "../../components/loader/Loader";
 import ImageCard from "../../components/image-card/ImageCard";
 import albumPlaceholder from "../../assets/album-placeholder.jpg";
 import "./album.css";
@@ -33,7 +33,6 @@ function Album() {
   return (
     <div className={"album-root"}>
       <Loader isLoading={isLoading}>
-        {/* TODO: ADD BACK BUTTON */}
         <h1>{album.name}</h1>
         <section className={"album-info-section"}>
           <ImageCard

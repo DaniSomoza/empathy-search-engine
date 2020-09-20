@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getTrack } from "../../http/tracks/tracks";
-import Loader from "../../loader/Loader";
 import ImageCard from "../../components/image-card/ImageCard";
 import trackPlaceholder from "../../assets/track-placeholder.png";
-import "./track.css";
+import Loader from "../../components/loader/Loader";
 import millisToMinutes from "../../helpers/millisToMinutes";
+import "./track.css";
 
 function Track() {
   let { trackId } = useParams();
@@ -34,7 +34,6 @@ function Track() {
   return (
     <div className={"track-root"}>
       <Loader isLoading={isLoading}>
-        {/* TODO: ADD BACK BUTTON */}
         <h1>{track.name}</h1>
         <section className={"artist-info-section"}>
           <ImageCard

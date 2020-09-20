@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getArtist } from "../../http/artists/artists";
-import Loader from "../../loader/Loader";
+import Loader from "../../components/loader/Loader";
 import ImageCard from "../../components/image-card/ImageCard";
 import artistPlaceholder from "../../assets/artist-placeholder.jpeg";
 import "./artist.css";
@@ -33,7 +33,6 @@ function Artist() {
   return (
     <div className={"artist-root"}>
       <Loader isLoading={isLoading}>
-        {/* TODO: ADD BACK BUTTON */}
         <h1>{artist.name}</h1>
         <section className={"artist-info-section"}>
           <ImageCard

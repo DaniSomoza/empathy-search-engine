@@ -6,7 +6,7 @@ import {
   ALL_CATEGORIES,
   SEARCH_CATEGORIES,
 } from "../../store/searchContext";
-import Loader from "../../loader/Loader";
+import Loader from "../../components/loader/Loader";
 import "./home.css";
 
 function Home() {
