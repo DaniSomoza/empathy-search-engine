@@ -1,4 +1,11 @@
-.search-gallery-root {
+.home-section-root {
+  background-image: url(../../assets/logo-animated.gif);
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+}
+
+.search-gallery-container {
   grid-template-columns: repeat(auto-fill, minmax(272px, 1fr));
   flex: 1;
   display: grid;

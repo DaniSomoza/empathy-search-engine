@@ -25,7 +25,7 @@ function Home() {
   const hasItems = items.length > 0;
 
   return (
-    <section id={"search-gallery"}>
+    <section className={"home-section-root"} id={"search-gallery"}>
       {query && (
         <Loader isLoading={isLoading}>
           {/* TODO: CREATE LABEL FOR SEARCH INFO */}
@@ -43,7 +43,7 @@ function Home() {
               )
             }
           >
-            <div className={"search-gallery-root"}>
+            <div className={"search-gallery-container"}>
               {items.map((item) => (
                 <GalleryItem key={item.id} type={item.type} item={item} />
               ))}
