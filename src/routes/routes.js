@@ -3,7 +3,10 @@ import Album from "../pages/album/Album";
 import Track from "../pages/track/Track";
 import Artist from "../pages/artist/Artist";
 
-const BASE_PATHNAME = process.env.REACT_APP_BASE_PATHNAME;
+const DEFAULT_BASE_PATHNAME = "/";
+
+const BASE_PATHNAME =
+  process.env.REACT_APP_BASE_PATHNAME || DEFAULT_BASE_PATHNAME;
 
 const HOME_PATHNAME = `${BASE_PATHNAME}`;
 const ARTIST_PATHNAME = `${BASE_PATHNAME}artists`;
