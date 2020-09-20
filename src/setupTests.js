@@ -3,7 +3,7 @@ import { configure, cleanup } from "@testing-library/react";
 import * as authEndpoints from "./http/auth/auth";
 import * as searchEndpoints from "./http/search/search";
 import * as artistsEndpoints from "./http/artists/artists";
-import * as albumsEndpoints from "./http/albums/albums";
+import * as albumsEndpoints from "./http/albums/albums.js";
 import * as tracksEndpoints from "./http/tracks/tracks";
 import GENERATE_ACCESS_TOKEN_MOCK from "../internals/request/generateAccessToken";
 import SEARCH_ALL_MOCK from "../internals/request/searchAll";

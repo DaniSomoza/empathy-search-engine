@@ -50,7 +50,7 @@ const GET_TRACK_MOCK = {
     spotify: "https://url/track/3",
   },
   href: "https://url/v1/tracks/3",
-  id: "54bm2e3tk8cliUz3VSdCPZ",
+  id: "3",
   is_local: false,
   name: "Track 3",
   popularity: 67,

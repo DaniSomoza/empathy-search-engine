@@ -34,7 +34,7 @@ function Artist() {
     <div className={"artist-root"}>
       <Loader isLoading={isLoading}>
         <h1>{artist.name}</h1>
-        <section className={"artist-info-section"}>
+        <section id={"artist-section"} className={"artist-info-section"}>
           <ImageCard
             id={artist.id}
             height={"300px"}
@@ -45,7 +45,7 @@ function Artist() {
           {/* TODO: ADD STYLES HERE */}
           <div className={"artist-info-text"}>
             <p>{`Type: ${artist.type}.`}</p>
-            <p>{`Name: ${artist.name}.`}</p>
+            <p id={"artist-info-name"}>{`Name: ${artist.name}.`}</p>
             {hasGenresDefined && (
               <p>{`Genres: ${artist.genres.join(", ")}.`}</p>
             )}

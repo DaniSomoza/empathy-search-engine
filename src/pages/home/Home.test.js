@@ -5,7 +5,7 @@ import SEARCH_ALL_MOCK from "../../../internals/request/searchAll";
 import SEARCH_ALBUMS_MOCK from "../../../internals/request/searchAlbums";
 import Home from "./Home";
 
-describe("<Home />", () => {
+describe("<Home /> Page", () => {
   it("Should render search field component", () => {
     const { getByTestId } = render(
       <Providers>

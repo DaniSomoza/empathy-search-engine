@@ -29,13 +29,11 @@ function Track() {
     performGetTrack();
   }, [trackId]);
 
-  console.log(track);
-
   return (
     <div className={"track-root"}>
       <Loader isLoading={isLoading}>
         <h1>{track.name}</h1>
-        <section className={"artist-info-section"}>
+        <section id={"track-section"} className={"artist-info-section"}>
           <ImageCard
             id={track.id}
             height={"300px"}
@@ -46,13 +44,15 @@ function Track() {
           {/* TODO: ADD STYLES HERE */}
           <div className={"track-info-text"}>
             <p>{`Type: ${track.type}.`}</p>
-            <p>{`Name: ${track.name}.`}</p>
+            <p id={"track-info-name"}>{`Name: ${track.name}.`}</p>
             <p>{`Artist: ${track?.artists
               ?.map((artist) => artist.name)
               .join(", ")}.`}</p>
             <p>{`Album: ${track?.album?.name}.`}</p>
             <p>{`Track number: ${track.track_number}.`}</p>
-            <p>{`Duration: ${millisToMinutes(track.duration_ms)}.`}</p>
+            <p id={"track-info-duration"}>{`Duration: ${millisToMinutes(
+              track.duration_ms
+            )}.`}</p>
             <p>{`Popularity: ${track.popularity}.`}</p>
           </div>
         </section>

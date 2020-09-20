@@ -34,7 +34,7 @@ function Album() {
     <div className={"album-root"}>
       <Loader isLoading={isLoading}>
         <h1>{album.name}</h1>
-        <section className={"album-info-section"}>
+        <section id={"album-section"} className={"album-info-section"}>
           <ImageCard
             id={album.id}
             height={"300px"}
@@ -45,13 +45,15 @@ function Album() {
           {/* TODO: ADD STYLES HERE */}
           <div className={"album-info-text"}>
             <p>{`Type: ${album.type}.`}</p>
-            <p>{`Name: ${album.name}.`}</p>
+            <p id={"album-info-name"}>{`Name: ${album.name}.`}</p>
             {/* TODO: ADD OnClick to artist HERE??? */}
             <p>{`Artist: ${album?.artists
               ?.map((artist) => artist.name)
               .join(", ")}.`}</p>
             <p>{`Release: ${album.release_date}.`}</p>
-            <p>{`Tracks: ${album.total_tracks} tracks.`}</p>
+            <p
+              id={"album-info-total-tracks"}
+            >{`Tracks: ${album.total_tracks} tracks.`}</p>
             <p>{`Label: ${album.label}.`}</p>
             {hasGenresDefined && <p>{`Genres: ${album.genres.join(", ")}.`}</p>}
             <p>{`Popularity: ${album.popularity}.`}</p>
