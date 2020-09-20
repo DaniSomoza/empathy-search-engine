@@ -8,8 +8,3 @@ export function getAlbum(albumId) {
   const url = `${BASE_URL}${API_VERSION}/albums/${albumId}`;
   return Api.get(url);
 }
-
-export function getAlbumTracks(albumId) {
-  const url = `${BASE_URL}${API_VERSION}/albums/${albumId}/tracks`;
-  return Api.get(url);
-}
