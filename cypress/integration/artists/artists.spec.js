@@ -1,6 +1,6 @@
 describe("Artists Page", () => {
   it("Should go to Artists Page and see details", () => {
-    cy.visit("http://localhost:3000/");
+    cy.visit("http://localhost:3000/empathy-search-engine");
 
     cy.get("#category-dropdown").select("artist");
 
@@ -21,7 +21,7 @@ describe("Artists Page", () => {
   });
 
   it("Should redirect to home by clicking on home logo", () => {
-    cy.visit("http://localhost:3000/artists/1");
+    cy.visit("http://localhost:3000/empathy-search-engine/artists/1");
 
     cy.get("#app-header-text-logo").click();
 

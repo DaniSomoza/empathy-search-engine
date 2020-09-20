@@ -1,6 +1,6 @@
 describe("Track Page", () => {
   it("Should go to Track Page and see details", () => {
-    cy.visit("http://localhost:3000/");
+    cy.visit("http://localhost:3000/empathy-search-engine/");
 
     cy.get("#category-dropdown").select("track");
 
@@ -21,7 +21,7 @@ describe("Track Page", () => {
   });
 
   it("Should redirect to home by clicking on home logo", () => {
-    cy.visit("http://localhost:3000/tracks/3");
+    cy.visit("http://localhost:3000/empathy-search-engine/tracks/3");
 
     cy.get("#app-header-text-logo").click();
 

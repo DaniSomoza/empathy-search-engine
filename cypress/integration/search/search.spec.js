@@ -1,6 +1,6 @@
 describe("Search", () => {
   it("Should search by all categories", () => {
-    cy.visit("http://localhost:3000/");
+    cy.visit("http://localhost:3000/empathy-search-engine/");
 
     cy.get("#search-query-input")
       .type("test query")
@@ -16,7 +16,7 @@ describe("Search", () => {
   });
 
   it("Should search by artist", () => {
-    cy.visit("http://localhost:3000/");
+    cy.visit("http://localhost:3000/empathy-search-engine/");
 
     cy.get("#category-dropdown").select("artist");
 
@@ -30,7 +30,7 @@ describe("Search", () => {
   });
 
   it("Should search by album", () => {
-    cy.visit("http://localhost:3000/");
+    cy.visit("http://localhost:3000/empathy-search-engine/");
 
     cy.get("#category-dropdown").select("album");
 
@@ -44,7 +44,7 @@ describe("Search", () => {
   });
 
   it("Should search by track", () => {
-    cy.visit("http://localhost:3000/");
+    cy.visit("http://localhost:3000/empathy-search-engine/");
 
     cy.get("#category-dropdown").select("track");
 
@@ -58,7 +58,7 @@ describe("Search", () => {
   });
 
   it("Should remove all items if user clears the search input", () => {
-    cy.visit("http://localhost:3000/");
+    cy.visit("http://localhost:3000/empathy-search-engine/");
 
     cy.get("#search-query-input").type("test query");
 
