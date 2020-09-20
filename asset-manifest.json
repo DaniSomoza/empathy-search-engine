@@ -1,23 +1,26 @@
 {
   "files": {
-    "main.css": "/empathy-search-engine/static/css/main.2f8f705a.chunk.css",
-    "main.js": "/empathy-search-engine/static/js/main.6ad8c381.chunk.js",
-    "main.js.map": "/empathy-search-engine/static/js/main.6ad8c381.chunk.js.map",
+    "main.css": "/empathy-search-engine/static/css/main.e7c460aa.chunk.css",
+    "main.js": "/empathy-search-engine/static/js/main.c7479601.chunk.js",
+    "main.js.map": "/empathy-search-engine/static/js/main.c7479601.chunk.js.map",
     "runtime-main.js": "/empathy-search-engine/static/js/runtime-main.057e0836.js",
     "runtime-main.js.map": "/empathy-search-engine/static/js/runtime-main.057e0836.js.map",
-    "static/js/2.780a4279.chunk.js": "/empathy-search-engine/static/js/2.780a4279.chunk.js",
-    "static/js/2.780a4279.chunk.js.map": "/empathy-search-engine/static/js/2.780a4279.chunk.js.map",
+    "static/js/2.45765e05.chunk.js": "/empathy-search-engine/static/js/2.45765e05.chunk.js",
+    "static/js/2.45765e05.chunk.js.map": "/empathy-search-engine/static/js/2.45765e05.chunk.js.map",
     "index.html": "/empathy-search-engine/index.html",
-    "precache-manifest.7b482ae2f30646513e4b4090a90fff65.js": "/empathy-search-engine/precache-manifest.7b482ae2f30646513e4b4090a90fff65.js",
+    "precache-manifest.486f9188204da5ba1299a2bb9ee75555.js": "/empathy-search-engine/precache-manifest.486f9188204da5ba1299a2bb9ee75555.js",
     "service-worker.js": "/empathy-search-engine/service-worker.js",
-    "static/css/main.2f8f705a.chunk.css.map": "/empathy-search-engine/static/css/main.2f8f705a.chunk.css.map",
-    "static/js/2.780a4279.chunk.js.LICENSE.txt": "/empathy-search-engine/static/js/2.780a4279.chunk.js.LICENSE.txt",
-    "static/media/search.css": "/empathy-search-engine/static/media/search-icon.2c37daca.svg"
+    "static/css/main.e7c460aa.chunk.css.map": "/empathy-search-engine/static/css/main.e7c460aa.chunk.css.map",
+    "static/js/2.45765e05.chunk.js.LICENSE.txt": "/empathy-search-engine/static/js/2.45765e05.chunk.js.LICENSE.txt",
+    "static/media/search.css": "/empathy-search-engine/static/media/search-icon.2c37daca.svg",
+    "static/media/loader-animated.gif": "/empathy-search-engine/static/media/loader-animated.c037a607.gif",
+    "static/media/logo-text-empathy-white.svg": "/empathy-search-engine/static/media/logo-text-empathy-white.ae28b11b.svg",
+    "static/media/logo-text-empathy.svg": "/empathy-search-engine/static/media/logo-text-empathy.e1461dc0.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.057e0836.js",
-    "static/js/2.780a4279.chunk.js",
-    "static/css/main.2f8f705a.chunk.css",
-    "static/js/main.6ad8c381.chunk.js"
+    "static/js/2.45765e05.chunk.js",
+    "static/css/main.e7c460aa.chunk.css",
+    "static/js/main.c7479601.chunk.js"
   ]
 }
