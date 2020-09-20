@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f062fe64e381e1e8b641f068eff58f1a",
+    "revision": "09cc696ac7338a0ad0402995c4645e99",
     "url": "/empathy-search-engine/index.html"
   },
   {
-    "revision": "6e1cc84fdbbeb0b2ec22",
-    "url": "/empathy-search-engine/static/css/main.9ba7c596.chunk.css"
+    "revision": "76e14cde607f1479bc06",
+    "url": "/empathy-search-engine/static/css/main.bb82abf6.chunk.css"
   },
   {
-    "revision": "6e5bdfe1b3de80303404",
-    "url": "/empathy-search-engine/static/js/2.1505042f.chunk.js"
+    "revision": "6ad5224a7ab8c6825703",
+    "url": "/empathy-search-engine/static/js/2.22a8c18b.chunk.js"
   },
   {
     "revision": "c64c486544348f10a6d6c716950bc223",
-    "url": "/empathy-search-engine/static/js/2.1505042f.chunk.js.LICENSE.txt"
+    "url": "/empathy-search-engine/static/js/2.22a8c18b.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "6e1cc84fdbbeb0b2ec22",
-    "url": "/empathy-search-engine/static/js/main.fa13f6a6.chunk.js"
+    "revision": "76e14cde607f1479bc06",
+    "url": "/empathy-search-engine/static/js/main.5966fa4c.chunk.js"
   },
   {
     "revision": "1e590947bcf55f82dcf7",

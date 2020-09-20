@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/empathy-search-engine/static/css/main.9ba7c596.chunk.css",
-    "main.js": "/empathy-search-engine/static/js/main.fa13f6a6.chunk.js",
-    "main.js.map": "/empathy-search-engine/static/js/main.fa13f6a6.chunk.js.map",
+    "main.css": "/empathy-search-engine/static/css/main.bb82abf6.chunk.css",
+    "main.js": "/empathy-search-engine/static/js/main.5966fa4c.chunk.js",
+    "main.js.map": "/empathy-search-engine/static/js/main.5966fa4c.chunk.js.map",
     "runtime-main.js": "/empathy-search-engine/static/js/runtime-main.057e0836.js",
     "runtime-main.js.map": "/empathy-search-engine/static/js/runtime-main.057e0836.js.map",
-    "static/js/2.1505042f.chunk.js": "/empathy-search-engine/static/js/2.1505042f.chunk.js",
-    "static/js/2.1505042f.chunk.js.map": "/empathy-search-engine/static/js/2.1505042f.chunk.js.map",
+    "static/js/2.22a8c18b.chunk.js": "/empathy-search-engine/static/js/2.22a8c18b.chunk.js",
+    "static/js/2.22a8c18b.chunk.js.map": "/empathy-search-engine/static/js/2.22a8c18b.chunk.js.map",
     "index.html": "/empathy-search-engine/index.html",
-    "precache-manifest.ee7d392290801e79217062738c6bca76.js": "/empathy-search-engine/precache-manifest.ee7d392290801e79217062738c6bca76.js",
+    "precache-manifest.7f6fe86760b684c87ece74b6e0923d2a.js": "/empathy-search-engine/precache-manifest.7f6fe86760b684c87ece74b6e0923d2a.js",
     "service-worker.js": "/empathy-search-engine/service-worker.js",
-    "static/css/main.9ba7c596.chunk.css.map": "/empathy-search-engine/static/css/main.9ba7c596.chunk.css.map",
-    "static/js/2.1505042f.chunk.js.LICENSE.txt": "/empathy-search-engine/static/js/2.1505042f.chunk.js.LICENSE.txt",
+    "static/css/main.bb82abf6.chunk.css.map": "/empathy-search-engine/static/css/main.bb82abf6.chunk.css.map",
+    "static/js/2.22a8c18b.chunk.js.LICENSE.txt": "/empathy-search-engine/static/js/2.22a8c18b.chunk.js.LICENSE.txt",
     "static/media/search.css": "/empathy-search-engine/static/media/search-icon.2c37daca.svg",
     "static/media/loader-animated.gif": "/empathy-search-engine/static/media/loader-animated.c037a607.gif",
     "static/media/logo-text-empathy-white.svg": "/empathy-search-engine/static/media/logo-text-empathy-white.ae28b11b.svg",
@@ -19,8 +19,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.057e0836.js",
-    "static/js/2.1505042f.chunk.js",
-    "static/css/main.9ba7c596.chunk.css",
-    "static/js/main.fa13f6a6.chunk.js"
+    "static/js/2.22a8c18b.chunk.js",
+    "static/css/main.bb82abf6.chunk.css",
+    "static/js/main.5966fa4c.chunk.js"
   ]
 }
