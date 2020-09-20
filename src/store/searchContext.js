@@ -6,6 +6,7 @@ import {
   searchAlbums,
   searchArtists,
 } from "../http/search/search";
+import scrollToTop from "../helpers/scrollToTop";
 
 const SearchContext = React.createContext();
 
@@ -54,50 +55,124 @@ function SearchProvider(props) {
       items: [],
       total: 0,
     },
+    totalItems: 0,
   });
+  const [page, setPage] = useState(1);
+
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     async function performSearch() {
       if (query) {
-        const searchEndpoints = {
-          [ALL_CATEGORIES.value]: searchAll,
-          [TRACK_CATEGORY.value]: searchTracks,
-          [ALBUM_CATEGORY.value]: searchAlbums,
-          [ARTIST_CATEGORY.value]: searchArtists,
-        };
-        const searchEndpoint = searchEndpoints[category] || searchAll;
-        const {
-          albums = { items: [], total: 0 },
-          artists = { items: [], total: 0 },
-          tracks = { items: [], total: 0 },
-        } = await searchEndpoint(query);
-        // console.log("Albums: ", albums);
-        // console.log("Artists: ", artists);
-        // console.log("Tracks: ", tracks);
-        setItems(combineItems(albums.items, artists.items, tracks.items));
-        setSearchInfo({ artists, albums, tracks });
+        try {
+          setIsLoading(true);
+          const searchEndpoints = {
+            [ALL_CATEGORIES.value]: searchAll,
+            [TRACK_CATEGORY.value]: searchTracks,
+            [ALBUM_CATEGORY.value]: searchAlbums,
+            [ARTIST_CATEGORY.value]: searchArtists,
+          };
+          const amounts = {
+            [ALL_CATEGORIES.value]: 10,
+            [TRACK_CATEGORY.value]: 30,
+            [ALBUM_CATEGORY.value]: 30,
+            [ARTIST_CATEGORY.value]: 30,
+          };
+          const amount = amounts[category];
+          const searchEndpoint = searchEndpoints[category] || searchAll;
+          const firstPage = 1;
+          const {
+            albums = { items: [], total: 0 },
+            artists = { items: [], total: 0 },
+            tracks = { items: [], total: 0 },
+          } = await searchEndpoint(query, firstPage, amount);
+          setItems(combineItems(albums.items, artists.items, tracks.items));
+          setSearchInfo({
+            artists,
+            albums,
+            tracks,
+            totalItems: artists.total + albums.total + tracks.total,
+          });
+          setIsLoading(false);
+        } catch (error) {
+          // TODO: HANDLE UNHAPPY PATH
+          setIsLoading(false);
+          console.log(error);
+        }
       } else {
         setItems([]);
+        setPage(1);
+        setIsLoading(false);
       }
     }
     const performSearchTimeOut = setTimeout(performSearch, REQUEST_TIMEOUT);
 
     return () => {
       clearTimeout(performSearchTimeOut);
-      // TODO: Cancel axios request
     };
   }, [category, query]);
 
-  // TODO: CREATE LOAD MORE ITEMS
-
   function onChangeQuery(query) {
+    scrollToTop();
     // TODO: ADD LOADER
     setQuery(query);
   }
 
   function onChangeCategory(category) {
+    scrollToTop();
     setCategory(category);
   }
+
+  async function loadMoreItems() {
+    try {
+      const searchEndpoints = {
+        [ALL_CATEGORIES.value]: searchAll,
+        [TRACK_CATEGORY.value]: searchTracks,
+        [ALBUM_CATEGORY.value]: searchAlbums,
+        [ARTIST_CATEGORY.value]: searchArtists,
+      };
+      const amounts = {
+        [ALL_CATEGORIES.value]: 10,
+        [TRACK_CATEGORY.value]: 30,
+        [ALBUM_CATEGORY.value]: 30,
+        [ARTIST_CATEGORY.value]: 30,
+      };
+      const amount = amounts[category];
+      const searchEndpoint = searchEndpoints[category] || searchAll;
+      const nextPage = page + 1;
+      const {
+        albums = { items: [], total: 0 },
+        artists = { items: [], total: 0 },
+        tracks = { items: [], total: 0 },
+      } = await searchEndpoint(query, nextPage, amount);
+      setPage(nextPage);
+      // TODO: HANDLE DUPLICATE ITEMS!!!
+      setItems([
+        ...items,
+        ...combineItems(albums.items, artists.items, tracks.items),
+      ]);
+      setSearchInfo({
+        artists: {
+          items: [...searchInfo.artists.items, ...artists.items],
+          total: artists.total,
+        },
+        albums: {
+          items: [...searchInfo.albums.items, ...albums.items],
+          total: albums.total,
+        },
+        tracks: {
+          items: [...searchInfo.tracks.items, ...tracks.items],
+          total: tracks.total,
+        },
+        totalItems: artists.total + albums.total + tracks.total,
+      });
+    } catch (error) {
+      // TODO: HANDLE UNHAPPY PATH
+      console.log(error);
+    }
+  }
+
+  const hasMoreItems = searchInfo.totalItems !== items.length;
 
   const state = {
     query,
@@ -108,6 +183,11 @@ function SearchProvider(props) {
 
     items,
     searchInfo,
+
+    loadMoreItems,
+    hasMoreItems,
+
+    isLoading,
 
     ...props.store,
   };

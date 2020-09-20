@@ -1,5 +1,5 @@
 import React from "react";
-import { render, fireEvent, wait } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import Providers from "../../store";
 import SearchGallery from "./SearchGallery";
 import SEARCH_ALL_MOCK from "../../../internals/request/searchAll";
@@ -26,6 +26,9 @@ describe("<SearchGallery />", () => {
           ...SEARCH_ALL_MOCK.tracks.items,
         ],
         category: "all-categories",
+        query: "query",
+        isLoading: false,
+        hasMoreItems: false,
         searchInfo: {
           albums: {
             items: SEARCH_ALL_MOCK.albums.items,
@@ -39,6 +42,7 @@ describe("<SearchGallery />", () => {
             items: SEARCH_ALL_MOCK.tracks.items,
             total: SEARCH_ALL_MOCK.tracks.total,
           },
+          totalItems: 3,
         },
       },
     };
@@ -67,6 +71,9 @@ describe("<SearchGallery />", () => {
           ...SEARCH_ALL_MOCK.tracks.items,
         ],
         category: "all-categories",
+        query: "query",
+        isLoading: false,
+        hasMoreItems: false,
         searchInfo: {
           albums: {
             items: SEARCH_ALL_MOCK.albums.items,
@@ -80,6 +87,7 @@ describe("<SearchGallery />", () => {
             items: SEARCH_ALL_MOCK.tracks.items,
             total: SEARCH_ALL_MOCK.tracks.total,
           },
+          totalItems: 3,
         },
       },
     };
@@ -103,6 +111,9 @@ describe("<SearchGallery />", () => {
       search: {
         items: [...SEARCH_ALBUMS_MOCK.albums.items],
         category: "album",
+        query: "query",
+        isLoading: false,
+        hasMoreItems: false,
         searchInfo: {
           albums: {
             items: SEARCH_ALBUMS_MOCK.albums.items,
@@ -116,6 +127,7 @@ describe("<SearchGallery />", () => {
             items: [],
             total: 0,
           },
+          totalItems: 1,
         },
       },
     };

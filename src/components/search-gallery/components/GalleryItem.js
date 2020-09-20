@@ -17,7 +17,7 @@ function GalleryItem({ item, type }) {
   const imageUrl = getImageUrl(item);
   // console.log(imageUrl);
   return (
-    <div
+    <article
       id={`gallery-item-${item.id}`}
       className={"card-root"}
       style={{
@@ -26,9 +26,7 @@ function GalleryItem({ item, type }) {
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
       }}
-    >
-      {type}
-    </div>
+    />
   );
 }
 

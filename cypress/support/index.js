@@ -42,36 +42,29 @@ beforeEach(() => {
 
   cy.mockRequest({
     method: "GET",
-    url: "**/search?q=test query&type=album,artist,track",
+    url: "**/search?q=test query&type=album,artist,track&offset=0&limit=10",
     response: SEARCH_ALL_MOCK,
     status: 200,
   });
 
   cy.mockRequest({
     method: "GET",
-    url: "**/search?q=test query&type=album",
+    url: "**/search?q=test query&type=album&offset=0&limit=30",
     response: SEARCH_ALBUMS_MOCK,
     status: 200,
   });
 
   cy.mockRequest({
     method: "GET",
-    url: "**/search?q=test query&type=track",
+    url: "**/search?q=test query&type=track&offset=0&limit=30",
     response: SEARCH_TRACKS_MOCK,
     status: 200,
   });
 
   cy.mockRequest({
     method: "GET",
-    url: "**/search?q=test query&type=artist",
+    url: "**/search?q=test query&type=artist&offset=0&limit=30",
     response: SEARCH_ARTISTS_MOCK,
-    status: 200,
-  });
-
-  cy.mockRequest({
-    method: "GET",
-    url: "**/search?q=test query&type=album",
-    response: SEARCH_ALBUMS_MOCK,
     status: 200,
   });
 });

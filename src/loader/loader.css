@@ -1,0 +1,38 @@
+@keyframes fadeinout {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.loader-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  padding-top: 15px;
+  height: 160px;
+  animation: fadeinout 2s linear infinite alternate;
+}
+
+@keyframes beatHeart {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.2);
+  }
+}
+
+.loader-img {
+  animation: beatHeart 0.75s linear infinite alternate;
+}
+
+.loader-text {
+  z-index: 10;
+  margin-top: 8px;
+}

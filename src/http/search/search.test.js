@@ -24,7 +24,7 @@ describe("HTTP Search Tests", () => {
     const { albums, artists, tracks } = await searchAll(query);
 
     const allCategories = "album,artist,track";
-    const url = `${BASE_URL}${API_VERSION}/search?q=${query}&type=${allCategories}`;
+    const url = `${BASE_URL}${API_VERSION}/search?q=${query}&type=${allCategories}&offset=0&limit=10`;
 
     expect(request).toHaveBeenCalledWith(url);
 
@@ -49,7 +49,7 @@ describe("HTTP Search Tests", () => {
     const { artists } = await searchArtists(query);
 
     const artistCategory = "artist";
-    const url = `${BASE_URL}${API_VERSION}/search?q=${query}&type=${artistCategory}`;
+    const url = `${BASE_URL}${API_VERSION}/search?q=${query}&type=${artistCategory}&offset=0&limit=30`;
 
     expect(request).toHaveBeenCalledWith(url);
 
@@ -72,7 +72,7 @@ describe("HTTP Search Tests", () => {
     const { tracks } = await searchTracks(query);
 
     const tracksCategory = "track";
-    const url = `${BASE_URL}${API_VERSION}/search?q=${query}&type=${tracksCategory}`;
+    const url = `${BASE_URL}${API_VERSION}/search?q=${query}&type=${tracksCategory}&offset=0&limit=30`;
 
     expect(request).toHaveBeenCalledWith(url);
 
@@ -95,7 +95,7 @@ describe("HTTP Search Tests", () => {
     const { albums } = await searchAlbums(query);
 
     const albumsCategory = "album";
-    const url = `${BASE_URL}${API_VERSION}/search?q=${query}&type=${albumsCategory}`;
+    const url = `${BASE_URL}${API_VERSION}/search?q=${query}&type=${albumsCategory}&offset=0&limit=30`;
 
     expect(request).toHaveBeenCalledWith(url);
 

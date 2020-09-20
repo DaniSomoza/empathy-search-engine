@@ -1,4 +1,5 @@
 import React from "react";
+import InfiniteScroll from "react-infinite-scroll-component";
 import GalleryItem from "./components/GalleryItem";
 import {
   useSearch,
@@ -6,22 +7,50 @@ import {
   SEARCH_CATEGORIES,
 } from "../../store/searchContext";
 import "./search-gallery.css";
+import Loader from "../../loader/Loader";
 
 function SearchGallery() {
-  const { items, searchInfo, category } = useSearch();
+  const {
+    items,
+    searchInfo,
+    category,
+    loadMoreItems,
+    hasMoreItems,
+    isLoading,
+    query,
+  } = useSearch();
 
   const totalItemsLabel = getTotalItemsLabel(category, searchInfo);
 
-  console.log(totalItemsLabel);
+  const hasItems = items.length > 0;
 
   return (
     <section id={"search-gallery"}>
-      {items.length > 0 && <label>{totalItemsLabel}</label>}
-      <div className={"search-gallery-root"}>
-        {items.map((item) => (
-          <GalleryItem key={item.id} type={item.type} item={item} />
-        ))}
-      </div>
+      {query && (
+        <Loader isLoading={isLoading}>
+          {/* TODO: CREATE LABEL FOR SEARCH INFO */}
+          <label>{totalItemsLabel}</label>
+          <InfiniteScroll
+            dataLength={items.length}
+            next={loadMoreItems}
+            hasMore={hasMoreItems}
+            loader={<Loader isLoading />}
+            endMessage={
+              hasItems && (
+                <p style={{ textAlign: "center" }}>
+                  <b>Yay! You have seen it all</b>
+                </p>
+              )
+            }
+          >
+            <div className={"search-gallery-root"}>
+              {items.map((item) => (
+                <GalleryItem key={item.id} type={item.type} item={item} />
+              ))}
+            </div>
+          </InfiniteScroll>
+        </Loader>
+      )}
     </section>
   );
 }

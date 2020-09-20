@@ -30,7 +30,13 @@ describe("<SearchEngine />", () => {
     fireEvent.change(searchInputNode, { target: { value: query } });
 
     await wait(() => {
-      expect(spiedEndpoints.searchAll).toHaveBeenCalledWith(query);
+      const page = 1;
+      const amount = 10;
+      expect(spiedEndpoints.searchAll).toHaveBeenCalledWith(
+        query,
+        page,
+        amount
+      );
       expect(spiedEndpoints.searchArtists).not.toHaveBeenCalled();
       expect(spiedEndpoints.searchTracks).not.toHaveBeenCalled();
       expect(spiedEndpoints.searchAlbums).not.toHaveBeenCalled();
@@ -58,10 +64,16 @@ describe("<SearchEngine />", () => {
     fireEvent.change(searchInputNode, { target: { value: completeQuery } });
 
     await wait(() => {
+      const page = 1;
+      const amount = 10;
       expect(spiedEndpoints.searchAll).not.toHaveBeenCalledWith("t");
       expect(spiedEndpoints.searchAll).not.toHaveBeenCalledWith("te");
       expect(spiedEndpoints.searchAll).not.toHaveBeenCalledWith("tes");
-      expect(spiedEndpoints.searchAll).toHaveBeenCalledWith(completeQuery);
+      expect(spiedEndpoints.searchAll).toHaveBeenCalledWith(
+        completeQuery,
+        page,
+        amount
+      );
       done();
     });
   });
@@ -86,8 +98,14 @@ describe("<SearchEngine />", () => {
     fireEvent.change(searchInputNode, { target: { value: query } });
 
     await wait(() => {
+      const page = 1;
+      const amount = 30;
       expect(spiedEndpoints.searchAll).not.toHaveBeenCalled();
-      expect(spiedEndpoints.searchArtists).toHaveBeenCalledWith(query);
+      expect(spiedEndpoints.searchArtists).toHaveBeenCalledWith(
+        query,
+        page,
+        amount
+      );
       expect(spiedEndpoints.searchTracks).not.toHaveBeenCalled();
       expect(spiedEndpoints.searchAlbums).not.toHaveBeenCalled();
       done();
@@ -114,8 +132,14 @@ describe("<SearchEngine />", () => {
     fireEvent.change(searchInputNode, { target: { value: query } });
 
     await wait(() => {
+      const page = 1;
+      const amount = 30;
       expect(spiedEndpoints.searchAll).not.toHaveBeenCalled();
-      expect(spiedEndpoints.searchAlbums).toHaveBeenCalledWith(query);
+      expect(spiedEndpoints.searchAlbums).toHaveBeenCalledWith(
+        query,
+        page,
+        amount
+      );
       expect(spiedEndpoints.searchArtists).not.toHaveBeenCalled();
       expect(spiedEndpoints.searchTracks).not.toHaveBeenCalled();
       done();
@@ -142,8 +166,14 @@ describe("<SearchEngine />", () => {
     fireEvent.change(searchInputNode, { target: { value: query } });
 
     await wait(() => {
+      const page = 1;
+      const amount = 30;
       expect(spiedEndpoints.searchAll).not.toHaveBeenCalled();
-      expect(spiedEndpoints.searchTracks).toHaveBeenCalledWith(query);
+      expect(spiedEndpoints.searchTracks).toHaveBeenCalledWith(
+        query,
+        page,
+        amount
+      );
       expect(spiedEndpoints.searchAlbums).not.toHaveBeenCalled();
       expect(spiedEndpoints.searchArtists).not.toHaveBeenCalled();
       done();
@@ -169,7 +199,13 @@ describe("<SearchEngine />", () => {
     fireEvent.change(searchInputNode, { target: { value: query } });
 
     await wait(() => {
-      expect(spiedEndpoints.searchAll).toHaveBeenCalledWith(query);
+      const page = 1;
+      const amount = 10;
+      expect(spiedEndpoints.searchAll).toHaveBeenCalledWith(
+        query,
+        page,
+        amount
+      );
       expect(spiedEndpoints.searchArtists).not.toHaveBeenCalled();
       expect(spiedEndpoints.searchTracks).not.toHaveBeenCalled();
       expect(spiedEndpoints.searchAlbums).not.toHaveBeenCalled();
