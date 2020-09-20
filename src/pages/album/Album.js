@@ -8,7 +8,6 @@ import "./album.css";
 
 function Album() {
   let { albumId } = useParams();
-  console.log(albumId);
 
   const [album, setAlbum] = useState({});
   const [isLoading, setIsLoading] = useState(true);
@@ -29,13 +28,12 @@ function Album() {
     performGetAlbum();
   }, [albumId]);
 
-  console.log(album);
-
   const hasGenresDefined = album.genres?.length > 0;
 
   return (
     <div className={"album-root"}>
       <Loader isLoading={isLoading}>
+        {/* TODO: ADD BACK BUTTON */}
         <h1>{album.name}</h1>
         <section className={"album-info-section"}>
           <ImageCard

@@ -42,7 +42,7 @@ beforeEach(() => {
 
   cy.mockRequest({
     method: "GET",
-    url: "**/search?q=test query&type=album,artist,track&offset=0&limit=10",
+    url: "**/search?q=test query&type=album,artist,track&offset=0&limit=15",
     response: SEARCH_ALL_MOCK,
     status: 200,
   });

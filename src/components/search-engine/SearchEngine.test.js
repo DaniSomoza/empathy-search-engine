@@ -31,7 +31,7 @@ describe("<SearchEngine />", () => {
 
     await wait(() => {
       const page = 1;
-      const amount = 10;
+      const amount = 15;
       expect(spiedEndpoints.searchAll).toHaveBeenCalledWith(
         query,
         page,
@@ -65,7 +65,7 @@ describe("<SearchEngine />", () => {
 
     await wait(() => {
       const page = 1;
-      const amount = 10;
+      const amount = 15;
       expect(spiedEndpoints.searchAll).not.toHaveBeenCalledWith("t");
       expect(spiedEndpoints.searchAll).not.toHaveBeenCalledWith("te");
       expect(spiedEndpoints.searchAll).not.toHaveBeenCalledWith("tes");
@@ -200,7 +200,7 @@ describe("<SearchEngine />", () => {
 
     await wait(() => {
       const page = 1;
-      const amount = 10;
+      const amount = 15;
       expect(spiedEndpoints.searchAll).toHaveBeenCalledWith(
         query,
         page,

@@ -24,7 +24,7 @@ describe("HTTP Search Tests", () => {
     const { albums, artists, tracks } = await searchAll(query);
 
     const allCategories = "album,artist,track";
-    const url = `${BASE_URL}${API_VERSION}/search?q=${query}&type=${allCategories}&offset=0&limit=10`;
+    const url = `${BASE_URL}${API_VERSION}/search?q=${query}&type=${allCategories}&offset=0&limit=15`;
 
     expect(request).toHaveBeenCalledWith(url);
 

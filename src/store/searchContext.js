@@ -73,7 +73,7 @@ function SearchProvider(props) {
             [ARTIST_CATEGORY.value]: searchArtists,
           };
           const amounts = {
-            [ALL_CATEGORIES.value]: 10,
+            [ALL_CATEGORIES.value]: 15,
             [TRACK_CATEGORY.value]: 30,
             [ALBUM_CATEGORY.value]: 30,
             [ARTIST_CATEGORY.value]: 30,
@@ -132,7 +132,7 @@ function SearchProvider(props) {
         [ARTIST_CATEGORY.value]: searchArtists,
       };
       const amounts = {
-        [ALL_CATEGORIES.value]: 10,
+        [ALL_CATEGORIES.value]: 15,
         [TRACK_CATEGORY.value]: 30,
         [ALBUM_CATEGORY.value]: 30,
         [ARTIST_CATEGORY.value]: 30,

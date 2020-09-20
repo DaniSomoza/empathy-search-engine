@@ -1,0 +1,25 @@
+.track-root {
+  text-align: center;
+}
+
+.track-info-section {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.track-info-text {
+  text-align: left;
+  padding: 12px;
+}
+
+@media (max-width: 600px) {
+  .track-info-section {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .track-info-text {
+    text-align: center;
+  }
+}

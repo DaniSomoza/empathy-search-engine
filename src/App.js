@@ -23,9 +23,9 @@ function App() {
   return (
     <div className="app-root">
       <Providers>
-        <Header />
-        <div id={"app-content"} className="app-content">
-          <Router>
+        <Router>
+          <Header />
+          <div id={"app-content"} className="app-content">
             <Switch>
               <Route path="/albums/:albumId">
                 <Album />
@@ -40,8 +40,8 @@ function App() {
                 <SearchGallery />
               </Route>
             </Switch>
-          </Router>
-        </div>
+          </div>
+        </Router>
       </Providers>
     </div>
   );

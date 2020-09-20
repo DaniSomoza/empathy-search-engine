@@ -28,13 +28,12 @@ function Artist() {
     performGetArtist();
   }, [artistId]);
 
-  console.log(artist);
-
   const hasGenresDefined = artist.genres?.length > 0;
 
   return (
     <div className={"artist-root"}>
       <Loader isLoading={isLoading}>
+        {/* TODO: ADD BACK BUTTON */}
         <h1>{artist.name}</h1>
         <section className={"artist-info-section"}>
           <ImageCard

@@ -1,8 +1,8 @@
 import moxios from "moxios";
-import Api from "../Api";
-import { HTTP_STATUS, ERROR_MESSAGES, HttpError } from "../errors/HttpError";
-import GENERATE_ACCESS_TOKEN_MOCK from "../../../internals/request/generateAccessToken";
-import { spiedEndpoints } from "../../setupTests";
+import Api from "./Api";
+import { HTTP_STATUS, ERROR_MESSAGES, HttpError } from "./errors/HttpError";
+import GENERATE_ACCESS_TOKEN_MOCK from "../../internals/request/generateAccessToken";
+import { spiedEndpoints } from "../setupTests";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 

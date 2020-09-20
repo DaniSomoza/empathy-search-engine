@@ -4,7 +4,7 @@ const BASE_URL = process.env.REACT_APP_SPOTIFY_URL;
 
 const API_VERSION = "/v1";
 
-export function searchAll(query, page = 1, limit = 10) {
+export function searchAll(query, page = 1, limit = 15) {
   const allCategories = "album,artist,track";
   const offset = (page - 1) * limit;
   const url = `${BASE_URL}${API_VERSION}/search?q=${query}&type=${allCategories}&offset=${offset}&limit=${limit}`;

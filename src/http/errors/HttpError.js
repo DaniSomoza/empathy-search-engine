@@ -13,7 +13,7 @@ class HttpError {
     } = axiosError;
 
     this.config = config;
-    this.message = data.error.message;
+    this.message = data.error?.message;
     this.error = data.error;
     this.status = status;
     this.url = config.url;
