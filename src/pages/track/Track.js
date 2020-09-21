@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { getTrack } from "../../http/tracks/tracks";
 import ImageCard from "../../components/image-card/ImageCard";
 import trackPlaceholder from "../../assets/track-placeholder.png";
 import Loader from "../../components/loader/Loader";
 import millisToMinutes from "../../helpers/millisToMinutes";
 import "./track.css";
+import { HOME_PATHNAME } from "../../routes/routes";
 
 function Track() {
   let { trackId } = useParams();
+  let history = useHistory();
 
   const [track, setTrack] = useState({});
   const [isLoading, setIsLoading] = useState(true);
@@ -20,14 +22,13 @@ function Track() {
         const track = await getTrack(trackId);
         setTrack(track);
       } catch (error) {
-        // TODO: handle unhappypath
-        // redirect to 404???
+        history.push(HOME_PATHNAME);
         console.log(error);
       }
       setIsLoading(false);
     }
     performGetTrack();
-  }, [trackId]);
+  }, [trackId, history]);
 
   return (
     <div className={"track-root"}>
@@ -41,7 +42,6 @@ function Track() {
             images={track.album?.images}
             placeholder={trackPlaceholder}
           />
-          {/* TODO: ADD STYLES HERE */}
           <div className={"track-info-text"}>
             <p>{`Type: ${track.type}.`}</p>
             <p id={"track-info-name"}>{`Name: ${track.name}.`}</p>

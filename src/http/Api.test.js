@@ -1,6 +1,6 @@
 import moxios from "moxios";
 import Api from "./Api";
-import { HTTP_STATUS, ERROR_MESSAGES, HttpError } from "./errors/HttpError";
+import { HTTP_STATUS, ERROR_MESSAGES } from "./errors/HttpError";
 import GENERATE_ACCESS_TOKEN_MOCK from "../../internals/request/generateAccessToken";
 import { spiedEndpoints } from "../setupTests";
 
@@ -34,7 +34,6 @@ describe("Api Tests", () => {
     );
   });
 
-  // TODO: Split this test in 2 separate!
   it("Should request a new Access Token if its expired", async (done) => {
     const refreshTokenUrl = `${BACKEND_URL}/api/token`;
 
@@ -181,25 +180,6 @@ describe("Api Tests", () => {
       expect(error.message).toEqual("this is an generateAccessToken error");
       expect(error.status).toEqual(HTTP_STATUS.BAD_REQUEST);
       done();
-    });
-  });
-
-  it("HttpError should return the error", () => {
-    const errorData = {
-      status: HTTP_STATUS.BAD_REQUEST,
-      data: {
-        error: {
-          message: "this is the error",
-          extra: "this is extra info about the error",
-        },
-      },
-    };
-
-    const error = new HttpError(errorData);
-
-    expect(error.getError()).toEqual({
-      message: "this is the error",
-      extra: "this is extra info about the error",
     });
   });
 });

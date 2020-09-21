@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { getArtist } from "../../http/artists/artists";
 import Loader from "../../components/loader/Loader";
 import ImageCard from "../../components/image-card/ImageCard";
 import artistPlaceholder from "../../assets/artist-placeholder.jpeg";
 import "./artist.css";
+import { HOME_PATHNAME } from "../../routes/routes";
 
 function Artist() {
   let { artistId } = useParams();
+  let history = useHistory();
 
   const [artist, setArtist] = useState({});
   const [isLoading, setIsLoading] = useState(true);
@@ -19,14 +21,13 @@ function Artist() {
         const artist = await getArtist(artistId);
         setArtist(artist);
       } catch (error) {
-        // TODO: handle unhappypath
-        // redirect to 404???
+        history.push(HOME_PATHNAME);
         console.log(error);
       }
       setIsLoading(false);
     }
     performGetArtist();
-  }, [artistId]);
+  }, [artistId, history]);
 
   const hasGenresDefined = artist.genres?.length > 0;
 
@@ -42,7 +43,6 @@ function Artist() {
             images={artist.images}
             placeholder={artistPlaceholder}
           />
-          {/* TODO: ADD STYLES HERE */}
           <div className={"artist-info-text"}>
             <p>{`Type: ${artist.type}.`}</p>
             <p id={"artist-info-name"}>{`Name: ${artist.name}.`}</p>

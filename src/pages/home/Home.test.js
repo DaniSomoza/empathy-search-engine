@@ -144,6 +144,4 @@ describe("<Home /> Page", () => {
     const infoLabelNode = getByText(infoLabel);
     expect(infoLabelNode).toBeInTheDocument();
   });
-
-  // TODO: ADD ALL TEST FOR ARTIST AND TRACK SELECTED CATEGORY
 });

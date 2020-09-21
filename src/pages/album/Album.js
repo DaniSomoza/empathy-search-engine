@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { getAlbum } from "../../http/albums/albums";
 import Loader from "../../components/loader/Loader";
 import ImageCard from "../../components/image-card/ImageCard";
 import albumPlaceholder from "../../assets/album-placeholder.jpg";
 import "./album.css";
+import { HOME_PATHNAME } from "../../routes/routes";
 
 function Album() {
   let { albumId } = useParams();
+  let history = useHistory();
 
   const [album, setAlbum] = useState({});
   const [isLoading, setIsLoading] = useState(true);
@@ -19,14 +21,13 @@ function Album() {
         const album = await getAlbum(albumId);
         setAlbum(album);
       } catch (error) {
-        // TODO: handle unhappypath
-        // redirect to 404???
+        history.push(HOME_PATHNAME);
         console.log(error);
       }
       setIsLoading(false);
     }
     performGetAlbum();
-  }, [albumId]);
+  }, [albumId, history]);
 
   const hasGenresDefined = album.genres?.length > 0;
 
@@ -42,11 +43,9 @@ function Album() {
             images={album.images}
             placeholder={albumPlaceholder}
           />
-          {/* TODO: ADD STYLES HERE */}
           <div className={"album-info-text"}>
             <p>{`Type: ${album.type}.`}</p>
             <p id={"album-info-name"}>{`Name: ${album.name}.`}</p>
-            {/* TODO: ADD OnClick to artist HERE??? */}
             <p>{`Artist: ${album?.artists
               ?.map((artist) => artist.name)
               .join(", ")}.`}</p>

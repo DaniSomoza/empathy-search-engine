@@ -6,8 +6,6 @@ export function responseInterceptorSuccess(response) {
 }
 
 export function responseInterceptorError(response) {
-  // TODO: NO INTERNET CONNECTION ERROR
-
   const error = new HttpError(response.response);
 
   const isAccessTokenExpired = error.isAccessTokenExpiredError();

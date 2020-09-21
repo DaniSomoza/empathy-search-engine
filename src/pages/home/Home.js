@@ -28,8 +28,7 @@ function Home() {
     <section className={"home-section-root"} id={"search-gallery"}>
       {query && (
         <Loader isLoading={isLoading}>
-          {/* TODO: CREATE LABEL FOR SEARCH INFO */}
-          <label>{totalItemsLabel}</label>
+          <div className={"search-items-label"}>{totalItemsLabel}</div>
           <InfiniteScroll
             dataLength={items.length}
             next={loadMoreItems}

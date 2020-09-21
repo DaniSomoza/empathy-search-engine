@@ -16,7 +16,6 @@ import {
   TRACK_PATHNAME,
 } from "../../../routes/routes";
 
-// TODO: refine this
 function GalleryItem({ item, type }) {
   let history = useHistory();
 

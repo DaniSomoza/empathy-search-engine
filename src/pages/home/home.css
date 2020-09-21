@@ -12,3 +12,8 @@
   padding: 16px;
   grid-gap: 12px;
 }
+
+.search-items-label {
+  padding: 16px;
+  padding-bottom: 0px;
+}
