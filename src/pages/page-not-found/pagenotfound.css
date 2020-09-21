@@ -1,0 +1,12 @@
+.not-found-root {
+  background-image: url(../../assets/logo-animated.gif);
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  text-align: center;
+}
+
+.not-found-title {
+  margin: 0;
+  padding: 20px;
+}

@@ -6,6 +6,7 @@ import "./app.css";
 import Api from "./http/Api";
 import { generateAccessToken } from "./http/auth/auth";
 import { routes } from "./routes/routes";
+import PageNotFound from "./pages/page-not-found/PageNotFound";
 
 function App() {
   useEffect(() => {
@@ -28,6 +29,9 @@ function App() {
                   <route.Component />
                 </Route>
               ))}
+              <Route path="*">
+                <PageNotFound />
+              </Route>
             </Switch>
           </div>
         </Router>
