@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/empathy-search-engine/static/css/main.66b0ab65.chunk.css",
-    "main.js": "/empathy-search-engine/static/js/main.b121013a.chunk.js",
-    "main.js.map": "/empathy-search-engine/static/js/main.b121013a.chunk.js.map",
+    "main.css": "/empathy-search-engine/static/css/main.69717849.chunk.css",
+    "main.js": "/empathy-search-engine/static/js/main.3d2e25ee.chunk.js",
+    "main.js.map": "/empathy-search-engine/static/js/main.3d2e25ee.chunk.js.map",
     "runtime-main.js": "/empathy-search-engine/static/js/runtime-main.057e0836.js",
     "runtime-main.js.map": "/empathy-search-engine/static/js/runtime-main.057e0836.js.map",
     "static/js/2.22a8c18b.chunk.js": "/empathy-search-engine/static/js/2.22a8c18b.chunk.js",
     "static/js/2.22a8c18b.chunk.js.map": "/empathy-search-engine/static/js/2.22a8c18b.chunk.js.map",
     "index.html": "/empathy-search-engine/index.html",
-    "precache-manifest.fa5195f6b4181c7c9454ca78da28b9b2.js": "/empathy-search-engine/precache-manifest.fa5195f6b4181c7c9454ca78da28b9b2.js",
+    "precache-manifest.dada086f74723634241fb1bf3885e8e7.js": "/empathy-search-engine/precache-manifest.dada086f74723634241fb1bf3885e8e7.js",
     "service-worker.js": "/empathy-search-engine/service-worker.js",
-    "static/css/main.66b0ab65.chunk.css.map": "/empathy-search-engine/static/css/main.66b0ab65.chunk.css.map",
+    "static/css/main.69717849.chunk.css.map": "/empathy-search-engine/static/css/main.69717849.chunk.css.map",
     "static/js/2.22a8c18b.chunk.js.LICENSE.txt": "/empathy-search-engine/static/js/2.22a8c18b.chunk.js.LICENSE.txt",
     "static/media/search.css": "/empathy-search-engine/static/media/search-icon.2c37daca.svg",
     "static/media/loader-animated.gif": "/empathy-search-engine/static/media/loader-animated.c037a607.gif",
-    "static/media/home.css": "/empathy-search-engine/static/media/logo-animated.833df15f.gif",
+    "static/media/pagenotfound.css": "/empathy-search-engine/static/media/logo-animated.833df15f.gif",
     "static/media/logo-text-empathy-white.svg": "/empathy-search-engine/static/media/logo-text-empathy-white.ae28b11b.svg",
     "static/media/logo-text-empathy.svg": "/empathy-search-engine/static/media/logo-text-empathy.e1461dc0.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.057e0836.js",
     "static/js/2.22a8c18b.chunk.js",
-    "static/css/main.66b0ab65.chunk.css",
-    "static/js/main.b121013a.chunk.js"
+    "static/css/main.69717849.chunk.css",
+    "static/js/main.3d2e25ee.chunk.js"
   ]
 }
