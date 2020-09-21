@@ -41,7 +41,6 @@ jobs:
           REACT_APP_SPOTIFY_URL: ${{ secrets.REACT_APP_SPOTIFY_URL }}
           REACT_APP_BACKEND_URL: ${{ secrets.REACT_APP_BACKEND_URL }}
           REACT_APP_TOKEN_SECRET: ${{ secrets.REACT_APP_TOKEN_SECRET }}
-          REACT_APP_BASE_PATHNAME: ${{ secrets.REACT_APP_BASE_PATHNAME }}
 
       - name: deploy-to-github-pages
         uses: JamesIves/github-pages-deploy-action@3.6.1
