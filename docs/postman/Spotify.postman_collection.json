@@ -1,0 +1,340 @@
+{
+	"info": {
+		"_postman_id": "92c49d6b-90be-4310-86d9-cb11f2a45ee0",
+		"name": "Spotify",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Search",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.spotify.com/v1/search?q=master&type=album,artist,track",
+					"protocol": "https",
+					"host": [
+						"api",
+						"spotify",
+						"com"
+					],
+					"path": [
+						"v1",
+						"search"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "master"
+						},
+						{
+							"key": "type",
+							"value": "album,artist,track"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Track Details",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{access_token}}"
+					}
+				],
+				"url": {
+					"raw": "https://api.spotify.com/v1/tracks/{{trackId}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"spotify",
+						"com"
+					],
+					"path": [
+						"v1",
+						"tracks",
+						"{{trackId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Album Details",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{access_token}}"
+					}
+				],
+				"url": {
+					"raw": "https://api.spotify.com/v1/albums/{{albumId}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"spotify",
+						"com"
+					],
+					"path": [
+						"v1",
+						"albums",
+						"{{albumId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Artist Details",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{access_token}}"
+					}
+				],
+				"url": {
+					"raw": "https://api.spotify.com/v1/artists/{{artistId}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"spotify",
+						"com"
+					],
+					"path": [
+						"v1",
+						"artists",
+						"{{artistId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search with offset",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{access_token}}"
+					}
+				],
+				"url": {
+					"raw": "https://api.spotify.com/v1/search?q=master%20of%20puppets&type=album,artist,track&offset=20&limit=20",
+					"protocol": "https",
+					"host": [
+						"api",
+						"spotify",
+						"com"
+					],
+					"path": [
+						"v1",
+						"search"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "master%20of%20puppets"
+						},
+						{
+							"key": "type",
+							"value": "album,artist,track"
+						},
+						{
+							"key": "offset",
+							"value": "20"
+						},
+						{
+							"key": "limit",
+							"value": "20"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Tracks",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{access_token}}"
+					}
+				],
+				"url": {
+					"raw": "https://api.spotify.com/v1/search?q=master&type=track",
+					"protocol": "https",
+					"host": [
+						"api",
+						"spotify",
+						"com"
+					],
+					"path": [
+						"v1",
+						"search"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "master"
+						},
+						{
+							"key": "type",
+							"value": "track"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Albums",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{access_token}}"
+					}
+				],
+				"url": {
+					"raw": "https://api.spotify.com/v1/search?q=master&type=album",
+					"protocol": "https",
+					"host": [
+						"api",
+						"spotify",
+						"com"
+					],
+					"path": [
+						"v1",
+						"search"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "master"
+						},
+						{
+							"key": "type",
+							"value": "album"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Artists",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{access_token}}"
+					}
+				],
+				"url": {
+					"raw": "https://api.spotify.com/v1/search?q=master&type=album",
+					"protocol": "https",
+					"host": [
+						"api",
+						"spotify",
+						"com"
+					],
+					"path": [
+						"v1",
+						"search"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "master"
+						},
+						{
+							"key": "type",
+							"value": "album"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Gerenate Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "317e3b81-2a88-47f9-84e1-83ec00af0d3e",
+						"exec": [
+							"",
+							"pm.environment.set(\"access_token\", pm.response.json().access_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic {{auth_basic_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						}
+					],
+					"options": {
+						"urlencoded": {}
+					}
+				},
+				"url": {
+					"raw": "https://accounts.spotify.com/api/token",
+					"protocol": "https",
+					"host": [
+						"accounts",
+						"spotify",
+						"com"
+					],
+					"path": [
+						"api",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
